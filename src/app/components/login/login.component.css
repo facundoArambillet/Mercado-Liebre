@@ -1,0 +1,151 @@
+section {
+    margin-bottom: 17%;
+}
+.col-6 {
+    margin-left: 50px;
+}
+article>.container>.row {
+    margin-top: 50px;
+}
+.login-header h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.login-security-issues {
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    padding-top: 20px;
+}
+
+.login-security-issues h2 {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.login-security-issues a {
+    font-size: 14px;
+    color: rgba(0, 0, 0, .55);
+}
+
+.login-security-issues>div:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, .03);
+}
+
+.login-form {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 40px;
+}
+
+.login-form input {
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 6px;
+    width: 80%;
+    height: 45px;
+}
+
+.login-form span {
+    font-size: 14px;
+}
+
+.login-actions {
+    padding-top: 20px;
+}
+
+.login-actions a {
+    color: #3483fa;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.dark-mode .login-form{
+    background-color: #31393d;
+    border: 1px solid rgba(255, 255, 255, .1);
+}
+.dark-mode input{
+    border: 1px solid rgba(255, 255, 255, .3);
+}
+.dark-mode .login-security-issues {
+    border-top: 1px solid rgba(255, 255, 255, .1);
+}
+.dark-mode .login-security-issues a{
+    color: white;
+}
+
+.dark-mode .login-security-issues>div:hover {
+    background-color: rgba(255, 255, 255, .03);
+}
+
+
+@media(max-width: 1200px) {
+    .login-header h1 {
+        font-size: 28px;
+    }
+}
+@media(max-width: 991px) {
+    .login-card {
+        width: 60%;
+    }
+}
+@media(max-width: 767px) {
+    .login-security-issues a {
+        font-size: 10px;
+    }
+    .login-header h1 {
+        font-size: 22px;
+    }
+    .login-card {
+        margin-left: 20px;
+        width: 70%;
+    }
+    .login-form input {
+        font-size: 12px;
+    }
+}
+@media(max-width: 576px) {
+    .login-header h1 {
+        font-size: 18px;
+    }
+    .login-card {
+        margin-left: 0;
+    }
+    .login-form input {
+        font-size: 12px;
+    }
+}
+@media(max-width: 475px) {
+    article>.container>.row {
+        display: flex;
+        justify-content: center;
+    }
+    .login-card {
+        width: 80%;
+    }
+    .login-form input {
+        width: 90%;
+    }
+    .login-form a, button {
+        font-size: 14px;
+    }
+    .login-column {
+        display: none;
+    }
+}
+@media(max-width: 400px) {
+    .login-card {
+        width: 90%;
+    }
+    .login-form input {
+        width: 100%;
+    }
+}
+@media(max-width: 330px) {
+    .login-card {
+        width: 100%;
+    }
+    .login-form a, button {
+        font-size: 12px;
+    }
+}

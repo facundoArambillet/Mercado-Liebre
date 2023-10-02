@@ -1,0 +1,10 @@
+
+
+@media(max-width: 767px) {
+    .categories {
+        display: none;
+    }
+    article {
+        text-align: center;
+    }
+}

@@ -1,0 +1,31 @@
+<div class="categories-sidebar-header">
+    <p>Category-Family</p>
+    <div>
+        <h3>{{category}}</h3>
+        <p>"Number of results" resultados</p>
+    </div>
+</div>
+<div class="categories-sidebar-content" [ngClass]="{'dark-mode': isDarkTheme }">
+    <div class="categories-sidebar-content-filters-price">
+        <div class="title pb-1">
+            <h3>Precio</h3>
+        </div>
+        <div class="category">
+            <a href="">Hasta ${{formattedFiltersPriceByCategory[0]}}</a>
+        </div>
+        <div class="category">
+            <a href="">${{formattedFiltersPriceByCategory[0]}} hasta ${{formattedFiltersPriceByCategory[1]}}</a>
+        </div>
+        <div class="category">
+            <a href="">Mas de ${{formattedFiltersPriceByCategory[1]}}</a>
+        </div>
+    </div>
+    <div class="categories-sidebar-content-filters pt-5" *ngFor="let filter of filtersByCategory">
+        <div class="title pb-1">
+            <h3>{{filter}}</h3>
+        </div>
+        <div class="category" *ngFor="let value of filterValues[filter]">
+            <a href="">{{value}}</a>
+        </div>
+    </div>
+</div>

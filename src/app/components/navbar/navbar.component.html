@@ -1,0 +1,220 @@
+<!-- <nav class="navbar navbar-expand-lg justify-content-center">
+
+    <div class="grid-template">
+        <div class="nav-left-area">
+            <a class="navbar-brand" [routerLink]="['/']">Logo Mercado Liebre</a>
+        </div>
+
+        <div class="nav-center-area ps-5">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="nav-right-area ps-5">
+            <p>Logo de algo</p>
+        </div>
+        <div class="nav-left-bottom-area">
+            <p>Enviar a "Nombre": </p>
+        </div>
+        <div class="nav-center-bottom-area ps-5">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" [routerLink]="['/']" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Categorias
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" [routerLink]="['/']">Action</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/']">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" [routerLink]="['/']">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/']">Ofertas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/']">Historial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Ayuda</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-right-bottom-area">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" [routerLink]="['/']" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Profile
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" [routerLink]="['/']">Action</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/']">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" [routerLink]="['/']">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/']">Mis compras</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/']">Carrito</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg" [ngClass]="{'light-mode-nav': isLightTheme, 'dark-mode-nav': !isLightTheme}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 d-flex">
+                <a class="navbar-brand" [routerLink]="['/']"><img id="logo"
+                        [src]="isLightTheme ? './favicon.ico' : './assets/favicon_light.ico'" alt="Logo">
+                </a>
+                <a class="nav-link" [routerLink]="['/']">Mercado <br>
+                    Liebre</a>
+            </div>
+            <div class="col-xl-6 col-lg-5 ps-5 navbar-hidden">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+            <div class="col-xl-4 col-lg-4 publicity navbar-hidden">
+                <p>Logo de algo</p>
+            </div>
+            <div class="col-2 navbar-hidden">
+                <div class="row" [ngClass]="{'ubication': isLightTheme, 'ubication-dark-mode': !isLightTheme}"
+                    *ngIf="isLogged">
+                    <div class="col-1">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <div class="col send">
+                        <small id="name">Enviar a : "Nombre" </small>
+                        <br>
+                        <small id="adress">Direccion: "Direccion"</small>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 d-flex align-items-center ps-5 navbar-hidden">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Categorias
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" [routerLink]="['/products', 'Categoria']">Categories</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/']">Ofertas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/']">Historial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/']">Supermercado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/']">Moda</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="col-4 ps-auto d-flex align-items-center justify-content-center navbar-hidden">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item dropdown" *ngIf="isLogged; else notLoggedProfile">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Profile
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" [routerLink]="['/']">Mi Perfil</a></li>
+                            <li><a class="dropdown-item" [routerLink]="['/']">Cerrar sesison</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/']">Mis compras</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true" [routerLink]="['/']">Ayuda</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn rounded-fill">
+                            <i class="bi bi-cart2"></i>
+                        </button>
+                    </li>
+
+                    <li class="nav-item">
+                        <button class="btn rounded-fill" (click)="toggleTheme()">
+                            <i class="bi " [ngClass]="isLightTheme ? 'bi-moon-fill' : 'bi-sun-fill'" id="dl-icon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="toggle-btn" (click)="toggleDropDown()">
+            <!-- <i class="bi bi-list" style="height: 30px; width: 30px;"></i> -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+            </svg>
+        </div>
+
+        <div class="dropdown_menu"
+            [ngClass]="{'': !isHidden, 'hidden': isHidden, 'dark-mode-btn-toggle': !isLightTheme, '': isLightTheme}">
+            <li class="nav-item" *ngIf="isLogged; else notLoggedProfile">
+                <a class="nav-link" [routerLink]="['/']">Profile</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Categorias
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" [routerLink]="['/products', 'Categoria']">Categories</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" [routerLink]="['/']">Ofertas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/']">Historial</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" aria-disabled="true" [routerLink]="['/']">Supermercado</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" aria-disabled="true" [routerLink]="['/']">Moda</a>
+            </li>
+            <li class="nav-item">
+                <button class="btn rounded-fill" (click)="toggleTheme()">
+                    <i id="dl-icon" [class]="'bi ' + (isLightTheme ? 'bi-moon-fill' : 'bi-sun-fill')"></i>
+                </button>
+            </li>
+        </div>
+    </div>
+
+</nav>
+<ng-template #notLoggedProfile>
+    <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/login']">Login</a>
+    </li>
+</ng-template>

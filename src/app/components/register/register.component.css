@@ -1,0 +1,106 @@
+section {
+    margin-bottom: 5%;
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+.register-card {
+    margin-top: 70px;
+    padding: 50px;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);;
+}
+.register-card-title h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+.register-card-content {
+    padding-top: 15px;
+}
+.register-card-content svg {
+    color: #3483fa;
+}
+.register-card-content h2 {
+    font-size: 16px;
+}
+.register-card-content h3 {
+    font-size: 14px;
+}
+.register-card-content button {
+    font-size: 14px;
+    font-weight: bold;
+}
+.register-card-content>div {
+    padding: 15px;
+}
+.register-card-content>div>.row {
+    padding-right: 20px;
+}
+.register-card-content .col-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.register-card-content-to-select {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.1);
+}
+.dark-mode {
+    background-color: #31393d;
+}
+.dark-mode svg{
+    color: white;
+}
+.dark-mode .register-card-content-to-select {
+    box-shadow: 0 0px 16px 0 rgba(255,255,255,.075);
+}
+@media(max-width: 991px) {
+    .register-card {
+        width: 75%;
+    }
+}
+@media(max-width: 767px) {
+    .register-card {
+        width: 95%;
+    }
+    .register-card-title h1 {
+        font-size: 20px;
+    }
+}
+@media(max-width: 576px) {
+    .register-card-content h2 {
+        font-size: 14px;
+    }
+    .register-card-content h3 {
+        font-size: 12px;
+    }
+    .register-card-content svg {
+        width: 20px;
+        height: 20px;
+    }
+    .register-card-content button {
+        font-size: 12px;
+    }
+}
+@media(max-width: 475px) {
+    .register-card-content-icon {
+        width: 0;
+        height: 0;
+    }
+    .register-card-content .row>div {
+        width: 100%;
+    }
+    .register-card-content .row>.col-8 {
+        text-align: center;
+    }
+    .register-card-content svg {
+        display: none;
+    }
+}
+@media(max-width: 400px) {
+    .register-card-content h3 {
+        display: none;
+    }
+}

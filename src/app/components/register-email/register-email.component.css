@@ -1,0 +1,90 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.register-card-email {
+    background-color: white;
+    margin-top: 70px;
+    padding: 50px 6%;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .15);
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 6px;
+}
+
+.register-card-email-title h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.register-card-email-title h2 {
+    font-size: 16px;
+}
+
+.register-card-email-content-input input {
+    width: 300px;
+    height: 48px;
+    border-radius: 6px;
+}
+.form-check-input {
+    border: 1px solid rgb(140,140,140,0.5);
+    border-radius: 3px;
+}
+.form-check-input:hover {
+    cursor: pointer;
+    border: 1px solid rgb(140,140,140,1);
+    border-radius: 3px;
+}
+.form-check-label {
+    font-size: 14px;
+}
+.register-email-actions button {
+    width: 100%;
+}
+.dark-mode {
+    background-color: #31393d;
+}
+@media(max-width: 1200px) {
+    .register-card-email-content-input input {
+        width: 260px;
+    }
+}
+@media(max-width: 991px) {
+    .register-card-email {
+        width: 50%;
+    }
+}
+@media(max-width: 767px) {
+    .register-card-email {
+        width: 65%;
+    }
+}
+@media(max-width: 576px) {
+    .register-card-email {
+        width: 70%;
+    }
+    .form-check-label {
+        font-size: 12px;
+    }
+}
+@media(max-width: 470px) {
+    .register-card-email {
+        width: 80%;
+    }
+}
+@media(max-width: 400px) {
+    .register-card-email {
+        width: 90%;
+    }
+}
+@media(max-width: 360px) {
+    .register-card-email-content-input input {
+        width: 220px;
+        font-size: 14px;
+    }
+}
+@media(max-width: 330px) {
+    .register-card-email-content-input input {
+        width: 200px;
+    }
+}

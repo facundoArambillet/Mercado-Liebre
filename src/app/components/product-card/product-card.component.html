@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col mt-3 hover" *ngFor="let i  of products" [ngClass]="{'dark-mode': isDarkTheme }">
+        <div class="card" style="width: 18rem;" [routerLink]="['/product', 'NombreDelProducto']">
+            <div class="card-img">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_704674-MLA51734752568_092022-O.webp" class="card-img-top"
+                    height="200px" width="98px">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Price</h5>
+                <p class="card-text"><small class="text-body-secondary">Cuotas por precio</small></p>
+                <p class="card-text">A little description</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+.footer {
+    height: 100px; 
+    margin-top: 50px; 
+    border-top: 1px solid #c0bebe;
+}
+.footer-content a {
+    font-size: 13px ;
+}
+.footer-copyright p{
+    font-size: 12px
+}
+.dark-mode a {
+    color: #DEE2E6 !important;
+}

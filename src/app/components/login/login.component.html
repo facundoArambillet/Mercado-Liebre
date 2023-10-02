@@ -1,0 +1,60 @@
+<section>
+    <article [ngClass]="{'dark-mode': isDarkTheme }">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 login-column">
+                    <div class="login-header">
+                        <h1>Ingresá tu email de Mercado Liebre</h1>
+                    </div>
+                    <div class="login-security-issues">
+                        <h2>Reportar un problema</h2>
+                        <div class="login-security-issues-phone-lost">
+                            <div class="row">
+                                <div class="col-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-phone" viewBox="0 0 16 16">
+                                        <path
+                                            d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z" />
+                                        <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                                    </svg>
+                                </div>
+                                <div class="col">
+                                    <a [routerLink]="['/']">Robo o perdida de telefono</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="login-security-issues-account-lost">
+                            <div class="row">
+                                <div class="col-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-person-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                    </svg>
+                                </div>
+                                <div class="col">
+                                    <a [routerLink]="['/']">Robo de cuenta</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 login-card">
+                    <div class="login-form">
+                        <form (ngSubmit)="onSubmit()" method="POST">
+                            <span>Email</span>
+                            <div>
+                                <input type="email" placeholder="Ej: MercadoLiebre@gmail.com" [(ngModel)]="userEmail" name="userEmail">
+                            </div>
+                            <div class="login-actions pt-4">
+                                <button type="submit" class="btn btn-primary"
+                                    [disabled]="!userEmail">Continuar</button>
+                                <a [routerLink]="['/register']">Crear cuenta</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

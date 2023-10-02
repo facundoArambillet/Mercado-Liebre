@@ -1,0 +1,27 @@
+<article>
+    <div class="container">
+        <div class="col-5 register-card-email"  [ngClass]="{'dark-mode': isDarkTheme }">
+            <div class="register-card-email-title">
+                <h1>Ingresá tu email</h1>
+                <h2>Asegurate de tener acceso a él.</h2>
+            </div>
+            <div class="register-card-email-content pt-3">
+                <div class="register-card-email-content-input">
+                    <input type="email" placeholder="Ej: MercadoLiebre@gmail.com" [(ngModel)]="userEmail"
+                        name="userEmail">
+                </div>
+                <div class="form-check pt-4">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" [(ngModel)]="isChecked">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Acepto los Términos y condiciones y autorizo el uso de mis datos de acuerdo a la Declaración de
+                        Privacidad.
+                    </label>
+                </div>
+                <div class="register-email-actions pt-4">
+                    <button type="submit" class="btn btn-primary"
+                    [disabled]="!userEmail" (click)="onSubmit()">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

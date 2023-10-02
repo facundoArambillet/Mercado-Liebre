@@ -1,0 +1,261 @@
+.protected-purchase-header-img img {
+    width: 100%;
+    height: 650px;
+}
+
+.protected-purchase-header-content {
+    position: absolute;
+    top: 14%;
+    padding: 10px;
+}
+
+.protected-purchase-header-content p {
+    margin: 0;
+}
+
+.protected-purchase-header-content h1 {
+    font-size: 56px;
+    font-weight: bold;
+    color: black;
+}
+
+.protected-purchase-header-content p {
+    color: black;
+    font: bold;
+}
+
+.protected-purchase-cards>div:first-child {
+    background-color: white;
+}
+
+.protected-purchase-cards h2 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.protected-purchase-cards h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.protected-purchase-benefits {
+    border: 1px solid rgb(102, 102, 102, .2);
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .1);
+    padding: 50px;
+}
+
+.protected-purchase-benefits-content p {
+    font-size: 24px;
+}
+
+.protected-purchase-benefits-content-products {
+    margin-top: 40px;
+}
+
+.protected-purchase-about {
+    padding: 130px 0;
+    text-align: center;
+}
+
+.protected-purchase-about-icons {
+    padding-top: 50px;
+}
+
+.protected-purchase-about-content {
+    padding-top: 20px;
+}
+
+.protected-purchase-about-content h3 {
+    margin-bottom: 10px;
+}
+
+/* .protected-purchase-about-icons .col-4 div {
+    background-color: #3483fa;
+    border-radius: 50%; 
+    width: 84px; 
+    height: 84px;
+} */
+.protected-purchase-coverage {
+    padding-top: 50px;
+}
+.protected-purchase-coverage-header {
+    text-align: center;
+}
+.protected-purchase-coverage-header-icons {
+    padding-top: 50px;
+}
+.protected-purchase-coverage-header-content {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.protected-purchase-coverage-header-content-list {
+    text-align: initial;
+}
+
+.dark-mode {
+    background-color: #31393d !important;
+}
+
+.dark-mode .protected-purchase-benefits {
+    border: 1px solid rgb(255, 255, 255, .2);
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 rgba(255, 255, 255, .05);
+    padding: 50px;
+}
+
+@media(max-width: 1800px) {
+    .protected-purchase-benefits-content {
+        padding-left: 100px;
+    }
+}
+
+@media(max-width: 1200px) {
+    .protected-purchase-header-content h1 {
+        font-size: 50px;
+    }
+
+    .protected-purchase-benefits-content {
+        padding-left: 0;
+    }
+}
+
+@media(max-width: 991px) {
+    .protected-purchase-header-content {
+        top: 9%;
+    }
+
+    .protected-purchase-cards svg {
+        width: 80px;
+        height: 80px;
+    }
+
+    .protected-purchase-cards h3 {
+        font-size: 22px;
+    }
+
+    .protected-purchase-cards p {
+        font-size: 16px
+    }
+
+    .protected-purchase-about-header h1 {
+        font-size: 28px;
+    }
+}
+
+@media(max-width: 767px) {
+    .protected-purchase-header-img img {
+        height: 500px;
+    }
+
+    .protected-purchase-header-content h1 {
+        font-size: 40px;
+    }
+
+    .protected-purchase-header-content p {
+        font-size: 14px;
+    }
+
+    .protected-purchase-cards h2 {
+        font-size: 20px;
+    }
+
+    .protected-purchase-cards h3 {
+        font-size: 18px;
+    }
+
+    .protected-purchase-cardst p {
+        font-size: 14px
+    }
+
+    .protected-purchase-coverage-header-content {
+        padding-top: 40px;
+    }
+}
+
+@media(max-width: 650px) {
+    .protected-purchase-header-img img {
+        height: 450px;
+    }
+
+    .protected-purchase-header-content h1 {
+        font-size: 35px;
+    }
+}
+
+@media(max-width: 530px) {
+    .protected-purchase-header {
+        display: none;
+    }
+
+    .protected-purchase-cards {
+        margin-top: 20px;
+    }
+
+    .protected-purchase-cards svg {
+        width: 60px;
+        height: 60px;
+    }
+
+    .protected-purchase-cards h2 {
+        font-size: 18px;
+    }
+
+    .protected-purchase-cards h3 {
+        font-size: 16px;
+    }
+
+    .protected-purchase-cards p {
+        font-size: 12px;
+    }
+
+    .protected-purchase-cards li {
+        font-size: 12px;
+    }
+
+    .protected-purchase-coverage-header-content {
+        padding-top: 30px;
+    }
+}
+
+@media(max-width: 425px) {
+    .protected-purchase-cards {
+        padding: 50px 0;
+    }
+
+    .protected-purchase-benefits-content .col-md-2.col-3 {
+        width: 30%;
+    }
+
+    .protected-purchase-benefits-content .col-md-10.col-9 {
+        width: 70%;
+    }
+
+    .protected-purchase-cards h2 {
+        font-size: 16px;
+    }
+
+    .protected-purchase-cards h3 {
+        font-size: 14px;
+    }
+
+    .protected-purchase-cards p {
+        font-size: 11px
+    }
+
+    .protected-purchase-about-content p {
+        display: none;
+    }
+}
+
+@media(max-width: 350px) {
+    .protected-purchase-benefits-content svg {
+        display: none;
+    }
+
+    .protected-purchase-benefits-content .col-md-10.col-9 {
+        width: 100%;
+    }
+}

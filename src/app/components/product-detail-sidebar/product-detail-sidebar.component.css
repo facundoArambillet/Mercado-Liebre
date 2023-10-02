@@ -1,0 +1,300 @@
+/* Afecto unicamente a los hijos directos */
+.sidebar > *{
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 5%;
+}
+
+.sidebar a {
+    color: #3483fa;
+}
+
+.sidebar-card-buy-header p {
+    font-size: 14px;
+    color: rgba(0, 0, 0, .55);
+}
+
+.sidebar-card-buy-header h1 {
+    font-size: 22px;
+    color: rgba(0, 0, 0, .9);
+}
+
+.sidebar-card-buy-price p {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.sidebar-card-buy-price h2 {
+    font-size: 28px;
+}
+
+.sidebar-card-buy-quantity {
+    font-weight: 600;
+}
+
+.sidebar-card-buy-btn button {
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #3483fa;
+    color: white;
+}
+
+.sidebar-card-buy-benefits {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, .55);
+}
+
+.sidebar-seller-detail-header h2 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.sidebar-seller-detail-header .sales-quantity h3 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.sidebar-seller-detail-header p {
+    font-size: 12px;
+}
+
+.sidebar-seller-detail-header .col-4 p{
+    text-align: center;
+}
+.sidebar-seller-detail-header-about a {
+    font-size: 14px;
+}
+
+.sidebar-warranty h2 {
+    font-size: 18px;
+    font-weight: 400;
+}
+.sidebar-warranty-detail-mp {
+    font-size: 14px;
+}
+.sidebar-warranty-detail-text {
+    font-size: 14px;
+    color: rgba(0,0,0,.55);
+}
+
+.dark-mode {
+    border: 1px solid rgba(255, 255, 255, .2) !important;
+}
+
+.dark-mode svg {
+    color: #DEE2E6 !important;
+}
+
+.dark-mode p {
+    color: #DEE2E6 !important;
+}
+
+.dark-mode h1 {
+    color: #DEE2E6 !important;
+}
+#aboutWarrantyLabel {
+    font-weight: bold;
+}
+.modal-body h2{
+    font-weight: bold;
+}
+@media(max-width: 1199px) {
+
+    .sidebar-card-buy-header p {
+        font-size: 12px;
+    }
+
+    .sidebar-card-buy-header h1 {
+        font-size: 20px;
+    }
+
+    .sidebar-card-buy-price p {
+        font-size: 16px;
+    }
+
+    .sidebar-card-buy-price h2 {
+        font-size: 26px;
+    }
+
+    .sidebar-card-buy-benefits-content p{
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 991px) {
+
+    .sidebar-card-buy-header p {
+        font-size: 11px;
+    }
+
+    .sidebar-card-buy-header h1 {
+        font-size: 18px;
+    }
+
+    .sidebar-card-buy-price p {
+        font-size: 14px;
+    }
+
+    .sidebar-card-buy-price h2 {
+        font-size: 24px;
+    }
+    .sidebar-card-buy-btn button {
+        font-size: 14px;
+    }
+    .sidebar-card-buy-benefits-content p{
+        font-size: 11px;
+    }
+    .sidebar-seller-detail-header-icons svg{
+        width: 22px;
+        height: 22px;
+    }
+    .sidebar-seller-detail-header .sales-quantity h3 {
+        font-size: 18px;
+    }
+    .sidebar-seller-detail-header-about a {
+        font-size: 12px;
+    }
+    .sidebar-seller-detail-header p {
+        font-size: 10px;
+    }
+    .sidebar-warranty p {
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 767px) {
+
+    .sidebar-card-buy-header p {
+        font-size: 10px;
+    }
+
+    .sidebar-card-buy-header h1 {
+        font-size: 16px;
+    }
+
+    .sidebar-card-buy-price p {
+        font-size: 12px;
+    }
+
+    .sidebar-card-buy-price h2 {
+        font-size: 22px;
+    }
+
+    .sidebar-card-buy-quantity {
+        font-size: 14px;
+    }
+
+    .sidebar-card-buy-btn button {
+        font-size: 12px;
+    }
+
+    .sidebar-card-buy-benefits-content p{
+        font-size: 10px;
+    }
+
+    .sidebar-seller-detail h2 {
+        font-size: 14px;
+    }
+
+    .sidebar-warranty h2 {
+        font-size: 14px;
+    }
+
+    .sidebar-warranty p {
+        font-size: 11px;
+    }
+}
+
+@media(max-width: 575px) {
+
+    .sidebar-card-buy-header p {
+        font-size: 10px;
+    }
+
+    .sidebar-card-buy-header h1 {
+        font-size: 14px;
+    }
+
+    .sidebar-card-buy-price p {
+        font-size: 10px;
+    }
+
+    .sidebar-card-buy-price h2 {
+        font-size: 18px;
+    }
+
+    .sidebar-card-buy-benefits-content p{
+        font-size: 10px;
+    }
+
+    .sidebar-seller-detail-header .sales-quantity h3 {
+        font-size: 14px;
+    }
+    .sidebar-seller-detail-header-about a {
+        font-size: 10px;
+    }
+    .sidebar-seller-detail-header p {
+        font-size: 9px;
+    }
+}
+
+@media(max-width: 500px) {
+
+    .sidebar-card-buy-header p {
+        font-size: 10px;
+    }
+
+    .sidebar-card-buy-header h1 {
+        font-size: 12px;
+    }
+
+    .sidebar-card-buy-price p {
+        font-size: 10px;
+    }
+
+    .sidebar-card-buy-price h2 {
+        font-size: 16px;
+    }
+
+    .sidebar-card-buy-quantity {
+        font-size: 12px;
+    }
+
+    .sidebar-card-btn-buy button {
+        font-size: 12px;
+    }
+
+    .sidebar-card-buy-benefits-content p{
+        font-size: 10px;
+    }
+}
+
+@media(max-width: 400px) {
+
+    .sidebar-card-buy-header p {
+        font-size: 10px;
+    }
+
+    .sidebar-card-buy-header h1 {
+        font-size: 12px;
+    }
+
+    .sidebar-card-buy-price p {
+        font-size: 10px;
+    }
+
+    .sidebar-card-buy-price h2 {
+        font-size: 16px;
+    }
+
+    .sidebar-card-buy-btn button {
+        font-size: 12px;
+    }
+
+    .sidebar-card-buy-benefits-content p{
+        font-size: 10px;
+    }
+}

@@ -1,0 +1,29 @@
+<div class="container product-content">
+    <div class="product-characteristics" [ngClass]="{'dark-mode': isDarkTheme }">
+        <div class="product-characteristics-header pt-4">
+            <h1>Caracteristicas del producto</h1>
+        </div>
+        <div class="product-characteristics-content pt-4">
+            <div class="row">
+                <div class="col-sm-6" *ngFor="let attribute of productAtributtes">
+                    <p>Caracteristica : <strong>Valor</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-description" [ngClass]="{'dark-mode': isDarkTheme }">
+        <div class="product-description-header pt-4">
+            <h1>Descripcion</h1>
+        </div>
+        <div class="product-description-content pt-3">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eveniet, qui quidem reiciendis
+                explicabo quis pariatur eum quisquam consequatur ipsa, magni dolore facere ipsum sunt. Enim iure
+                excepturi architecto? Sit ducimus quasi, ut fugiat doloremque non veritatis adipisci quisquam itaque
+                voluptates aspernatur, quas natus suscipit cum corporis sunt. Voluptates, animi!
+            </p>
+        </div>
+    </div>
+
+</div>

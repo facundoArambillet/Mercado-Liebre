@@ -1,0 +1,12 @@
+<section>
+    <div class="container">
+        <div class="row pt-5">
+            <article class="col-3 categories">
+                <app-product-card-by-category-sidebar [category]="categoryName"></app-product-card-by-category-sidebar>
+            </article>
+            <article class="col-8 bg-white products">
+                <app-product-card-by-category [productsByCategory]="products"></app-product-card-by-category>
+            </article>
+        </div>
+    </div>
+</section>

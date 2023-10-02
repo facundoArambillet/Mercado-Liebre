@@ -1,0 +1,24 @@
+.category-card {
+    border-bottom: 1px solid #c0bebe; 
+    border-right: 1px solid #c0bebe;
+}
+.category-card:hover {
+    cursor: pointer;
+    background-color: #3483fa;
+    color: white;
+}
+.dark-mode {
+    background-color: #31393d !important;
+    color: white;
+}
+.dark-mode .category-card{
+    border-bottom: 1px solid #616161; 
+    border-right: 1px solid #616161;
+}
+.dark-mode img {
+    /* Esto hace que los pixeles negros se vuelvan blancos */
+    filter: invert(100%) grayscale(100%);
+}
+.dark-mode .category-card:hover{
+    background-color: black;
+}

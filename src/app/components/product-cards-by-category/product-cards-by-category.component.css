@@ -1,0 +1,18 @@
+.products {
+    padding: 0;
+}
+
+@media(max-width: 991px) {
+    .products {
+        margin-left: 5%;
+    }
+}
+@media(max-width: 767px) {
+    .categories {
+       display: none;
+    }
+    .container >* {
+        display: flex;
+        justify-content: center;
+    }
+}

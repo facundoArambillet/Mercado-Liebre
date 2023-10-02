@@ -1,0 +1,178 @@
+<section>
+    <div class="protected-purchase">
+        <article>
+            <div class="protected-purchase-header">
+                <div class="protected-purchase-header-img">
+                    <img src="./assets/protected-purchase.jpg" alt="">
+                </div>
+                <div class="protected-purchase-header-content">
+                    <h1>Comprá sin límites,<br>
+                        nosotros te cuidamos</h1>
+                    <p>¿No recibiste lo que esperabas? ¿Te arrepentiste?</p>
+                    <p>Te devolvemos el dinero.</p>
+                </div>
+            </div>
+        </article>
+        <article class="protected-purchase-cards">
+            <div [ngClass]="{'dark-mode': isDarkTheme }">
+                <div class="container" >
+                    <div class="protected-purchase-benefits">
+                        <div class="protected-purchase-benefits-title d-flex justify-content-center">
+                            <h2>Con Compra Protegida, tu dinero está seguro en cada momento.</h2>
+                        </div>
+                        <div class="protected-purchase-benefits-content pt-5">
+                            <div
+                                class="protected-purchase-benefits-content-truck row d-flex justify-content-center align-items-center">
+                                <div class="col-md-2 col-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="currentColor"
+                                        class="bi bi-truck-front" viewBox="0 0 16 16">
+                                        <path
+                                            d="M5 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-6-1a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2H7ZM4 2a1 1 0 0 0-1 1v3.9c0 .625.562 1.092 1.17.994C5.075 7.747 6.792 7.5 8 7.5c1.208 0 2.925.247 3.83.394A1.008 1.008 0 0 0 13 6.9V3a1 1 0 0 0-1-1H4Zm0 1h8v3.9c0 .002 0 .001 0 0l-.002.004a.013.013 0 0 1-.005.002h-.004C11.088 6.761 9.299 6.5 8 6.5s-3.088.26-3.99.406h-.003a.013.013 0 0 1-.005-.002L4 6.9c0 .001 0 .002 0 0V3Z" />
+                                        <path
+                                            d="M1 2.5A2.5 2.5 0 0 1 3.5 0h9A2.5 2.5 0 0 1 15 2.5v9c0 .818-.393 1.544-1 2v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5V14H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2a2.496 2.496 0 0 1-1-2v-9ZM3.5 1A1.5 1.5 0 0 0 2 2.5v9A1.5 1.5 0 0 0 3.5 13h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 12.5 1h-9Z" />
+                                    </svg>
+                                </div>
+                                <div class="col-md-10 col-9">
+                                    <h3>28 días de cobertura desde que compraste,</h3>
+                                    <p>si no te llega el producto.</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="protected-purchase-benefits-content-products row d-flex justify-content-center align-items-center">
+                                <div class="col-md-2 col-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="currentColor"
+                                        class="bi bi-pc-display" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 1a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V1Zm1 13.5a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0Zm2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0ZM9.5 1a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5ZM9 3.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1h-5a.5.5 0 0 0-.5.5ZM1.5 2A1.5 1.5 0 0 0 0 3.5v7A1.5 1.5 0 0 0 1.5 12H6v2h-.5a.5.5 0 0 0 0 1H7v-4H1.5a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5H7V2H1.5Z" />
+                                    </svg>
+                                </div>
+                                <div class="col-md-10 col-9">
+                                    <h3>30 días de cobertura desde que lo recibís,</h3>
+                                    <p>si te arrepentís o el producto tiene un problema.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="protected-purchase-about">
+                        <div class="protected-purchase-about-header">
+                            <h2>Te acompañamos hasta que tengas tu dinero de vuelta</h2>
+                        </div>
+                        <div class="protected-purchase-about-icons">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+                                            fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                                            <path
+                                                d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                            <path
+                                                d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+                                            fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+                                            fill="currentColor" class="bi bi-cash" viewBox="0 0 16 16">
+                                            <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                                            <path
+                                                d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="protected-purchase-about-content">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div>
+                                        <h3>Inicia un reclamo</h3>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div>
+                                        <h3>Le pedimos al vendedor
+                                            que lo resuelva</h3>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div>
+                                        <h3>Te cubrimos si no se soluciona</h3>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div>
+                                        <p>Contanos lo que pasó y le avisaremos al vendedor.</p>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div>
+                                        <p>Facilitamos las herramientas para que solucione el reclamo según lo que
+                                            necesites.</p>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div>
+                                        <p>Nuestro equipo de Compra Protegida intervendrá para devolverte el dinero</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="protected-purchase-coverage">
+                <div class="container">
+                    <div class="protected-purchase-coverage-header">
+                        <h2>Conocé el alcance de nuestra cobertura</h2>
+                    </div>
+                    <div class="protected-purchase-coverage-header-icons">
+                        <div class="row">
+                            <div class="col-6 d-flex justify-content-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-shield-check" viewBox="0 0 16 16">
+                                    <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
+                                    <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                  </svg>
+                            </div>
+                            <div class="col-6 d-flex justify-content-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                  </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="protected-purchase-coverage-header-content">
+                        <div class="row">
+                            <div class="col-6">
+                                <h3>Tus compras en Mercado Libre están protegidas.</h3>
+                            </div>
+                            <div class="col-6">
+                                <h3>No cubrimos:</h3>
+                                <div class="protected-purchase-coverage-header-content-list d-flex justify-content-center">
+                                    <ul>
+                                        <li>Pagos con QR o fuera de Mercado Libre.</li>
+                                        <li>Envíos de dinero.</li>
+                                        <li>Productos y categorías excluidas.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
