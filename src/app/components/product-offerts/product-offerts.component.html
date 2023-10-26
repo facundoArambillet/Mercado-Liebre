@@ -1,0 +1,30 @@
+<section [ngClass]="{'dark-mode': isDarkTheme }">
+    <article>
+        <div class="container-fluid product-offers-header">
+            <div class="container">
+                <div class=" pt-5 pb-5">
+                    <h1>Ofertas</h1>
+                    <h2>¡Encontrá precios increíbles cada día!</h2>
+                </div>
+            </div>
+        </div>
+    </article>
+    <article>
+        <div class="container">
+            <div class="row pt-5">
+                <article class="col-3">
+                    <div>
+                        <app-product-offerts-sidebar></app-product-offerts-sidebar>
+                    </div>
+                </article>
+                <article class="col-9">
+                    <div class="row">
+                        <div class="col mt-3 d-flex justify-content-center" *ngFor="let product of productsInOffert">
+                            <app-product-card></app-product-card>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </article>
+</section>

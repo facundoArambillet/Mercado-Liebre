@@ -1,0 +1,27 @@
+.product-offers-header {
+    background-color: white;
+}
+.product-offers-header h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+.product-offers-header h2 {
+    font-size: 14px;
+}
+.dark-mode .product-offers-header {
+    background-color: #31393d 
+}
+
+@media(max-width: 991px) {
+    .container {
+        max-width: 95%;
+    }
+}
+@media(max-width: 576px) {
+    .col-3 {
+        display: none;
+    }
+    .col-9 {
+        width: 100%;
+    }
+}

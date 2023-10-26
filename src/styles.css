@@ -6,8 +6,15 @@
 }
 body {
     font-family: 'Roboto', Helvetica,Arial,sans-serif;
+    /* Propiedades aplicadas para que los modales de boostrap, no remuevan la barra de desplazamiento 
+    y generen un vacio en el contendio */
+    overflow: auto !important;
+    padding-right: 0 !important;
 }
 a {
     text-decoration: none;
     color: black;
 }
+/* footer {
+    margin-top: 50px;
+} */

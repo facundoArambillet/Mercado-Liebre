@@ -1,0 +1,46 @@
+section {
+    background-color: #F5F5F5;
+    height: 100%;
+}
+.user-profile-sidebar-header {
+    padding: 0px 15px;
+}
+.user-profile-sidebar-header h1 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+}
+.user-profile-sidebar-content h2 {
+    font-size: 14px;
+}
+/* .user-profile-sidebar-content-card {
+    padding-bottom: 15px;
+} */
+/* .user-profile-sidebar-content-card>div {
+    padding-left: 15px;
+} */
+.user-profile-sidebar-content-card {
+    padding: 10px 15px;
+}
+.user-profile-sidebar-content-card a{
+    color: #666;
+}
+.user-profile-sidebar-content-card:hover {
+    border-left: 4px solid transparent;
+    border-left-color:  #3483fa;
+    transition: .2s ease-out;
+}
+
+.dark-mode {
+    background-color: #31393d ;
+
+}
+.dark-mode a{
+    color:#DEE2E6;
+}
+.dark-mode h1{
+    color:#DEE2E6;
+}
+/* .dark-mode .user-profile-sidebar-content-card:hover {
+    border-left-color:  #00255c;
+} */

@@ -1,0 +1,71 @@
+<section class="mt-5" [ngClass]="{'dark-mode': isDarkTheme }">
+    <article>
+        <div class="container">
+            <!-- IMPLEMENTAR INFINITE SCROLLING -->
+            <div class="user-history-header">
+                <div class="d-flex justify-content-between">
+                    <div class="user-history-header-title">
+                        <h1>Tu historial</h1>
+                    </div>
+                    <div class="user-history-header-settings">
+                        <button (click)="toogleHidden()">
+                            Administrar
+                            <svg *ngIf="isSettingsHidden; else showSettings" xmlns="http://www.w3.org/2000/svg"
+                                width="12" height="12" fill="currentColor" class="bi bi-chevron-down"
+                                viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="user-history-header-settings-content d-flex align-items-center mt-3"
+                    [ngClass]="{'hidden': isSettingsHidden}">
+                    <div class="user-history-header-settings-content-action me-3">
+                        <span>Registro de historial</span>
+                    </div>
+                    <div class="ms-3">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#deleteHistory">Borrar tu
+                            historial</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="deleteHistory" tabindex="-1" aria-labelledby="deleteHistory"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="deleteHistory">¿Querés borrar tu historial?
+                                        </h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Si borrás tus publicaciones vistas y búsquedas realizadas, dejarás de ver
+                                        recomendaciones personalizadas hasta que acumules nueva actividad.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="modal-footer-btn-delete" type="button" (click)="deleteAllHistory()">Borrar mi historial</button>
+                                        <button class="modal-footer-btn-cancel" type="button" data-bs-dismiss="modal">Cancelar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-history-content mt-3">
+                <div class="row">
+                    <div class="col mt-3" *ngFor="let product of productsHistory">
+                        <app-product-card [redirectedByUserHistory]="true"></app-product-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<ng-template #showSettings>
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-up"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+            d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+    </svg>
+</ng-template>

@@ -1,0 +1,46 @@
+<section [ngClass]="{'dark-mode': isDarkTheme }">
+    <article>
+        <div class="product-offers-sidebar-title">
+            <h1>Todas</h1>
+            <h2>"productQuantity" productos</h2>
+        </div>
+        <div class="product-offers-sidebar-content">
+            <div class="categories-filter">
+                <div class="mt-5">
+                    <div>
+                        <h1>Categorias</h1>
+                    </div>
+                    <div *ngFor="let categoryFamily of categoryFamilies">
+                        <div class="d-flex">
+                            <div>
+                                <a [routerLink]="['/']">
+                                    <h2>{{categoryFamily.name}}</h2>
+                                </a>
+                            </div>
+                            <div class="ms-1">
+                                <h3>({{categoryFamily.quantity}})</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <div>
+                        <h1>Precio</h1>
+                    </div>
+                    <div>
+                        <div class="category">
+                            <a [routerLink]="['/']">Hasta ${{formattedFiltersPriceByCategory[0]}}</a>
+                        </div>
+                        <div class="category">
+                            <a [routerLink]="['/']">${{formattedFiltersPriceByCategory[0]}} hasta
+                                ${{formattedFiltersPriceByCategory[1]}}</a>
+                        </div>
+                        <div class="category">
+                            <a [routerLink]="['/']">Mas de ${{formattedFiltersPriceByCategory[1]}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

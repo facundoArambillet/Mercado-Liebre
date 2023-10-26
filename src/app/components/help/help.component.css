@@ -1,0 +1,82 @@
+
+article h1 {
+    font-size: 28px;
+}
+
+article h2 {
+    font-size: 20px;
+}
+
+article h3 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+article h4 {
+    font-size: 14px;
+    color: #666;
+}
+.container {
+    width: 760px;
+}
+.help-search-form input {
+    height: 48px;
+}
+
+.help-search-form button {
+    padding: 10px;
+}
+
+.help-cards-body {
+    background-color: white;
+    border-radius: 6px;
+}
+
+.help-card {
+    border-bottom: 1px solid #D8D8D8;
+    padding: 10px 16px;
+}
+
+.help-cards-body .help-card:last-child {
+    border-bottom: 0;
+}
+
+.help-card-content svg {
+    color: rgba(0, 0, 0, 0.55);
+}
+
+.help-card:hover {
+    background-color: rgba(0, 0, 0, .04);
+}
+
+.dark-mode .help-cards-body {
+    background-color: #31393d;
+}
+
+.dark-mode article h3 {
+    color: #DEE2E6;
+}
+
+.dark-mode article h4 {
+    color: #FFFFFFA6;
+}
+
+.dark-mode article svg {
+    color: white;
+}
+
+.dark-mode .help-card {
+    border-bottom: 1px solid #616161;
+}
+.dark-mode .help-card:hover {
+    background-color: rgba(255, 255, 255, .04);
+}
+
+@media(max-width: 576px) {
+    .container {
+        width: 100%;
+    }
+    .help-card-content-icon{
+        display: none !important;
+    }
+}

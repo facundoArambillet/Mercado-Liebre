@@ -1,15 +1,73 @@
-<div class="row">
-    <div class="col mt-3 hover" *ngFor="let i  of products" [ngClass]="{'dark-mode': isDarkTheme }">
-        <div class="card" style="width: 18rem;" [routerLink]="['/product', 'NombreDelProducto']">
-            <div class="card-img">
-                <img src="https://http2.mlstatic.com/D_NQ_NP_704674-MLA51734752568_092022-O.webp" class="card-img-top"
-                    height="200px" width="98px">
-            </div>
-            <div class="card-body">
+<div class="card hover" style="width: 18rem;" [routerLink]="['/product', 'NombreDelProducto']"
+    [ngClass]="{'dark-mode': isDarkTheme }">
+    <div class="card-img">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_704674-MLA51734752568_092022-O.webp" class="card-img-top"
+            height="200px" width="98px">
+    </div>
+    <div class="card-body" *ngIf="!isInWeeklyDeal; else weeklyDeal">
+        <div *ngIf="!isInOffer; else offer">
+            <div>
                 <h5 class="card-title">Price</h5>
-                <p class="card-text"><small class="text-body-secondary">Cuotas por precio</small></p>
+            </div>
+            <div class="mb-3" *ngIf="!isInCash">
+                <p class="card-text" *ngIf="!hasInterestFreeInstallments; else interestFreeInstallments"><small class="text-body-secondary">Cuotas por precio</small></p>
+            </div>
+            <div>
                 <p class="card-text">A little description</p>
+            </div>
+            <div *ngIf="redirectedByUserHistory">
+                <button (click)="deleteHistory($event)">Eliminar</button>
             </div>
         </div>
     </div>
 </div>
+
+<ng-template #weeklyDeal>
+    <div class="card-body">
+        <div class="weekly-deal-card mb-3" >
+            <div class="weekly-deal-text">
+                <span>Oferta Semanal</span>
+            </div>
+        </div>
+        <div *ngIf="!isInOffer; else offer">
+            <div>
+                <h5 class="card-title">Price</h5>
+            </div>
+            <div class="mb-3" *ngIf="!isInCash">
+                <p class="card-text" *ngIf="!hasInterestFreeInstallments; else interestFreeInstallments"><small class="text-body-secondary">Cuotas por precio</small></p>
+            </div>
+            <div>
+                <p class="card-text">A little description</p>
+            </div>
+            <div *ngIf="redirectedByUserHistory">
+                <button (click)="deleteHistory($event)">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #offer>
+    <div>
+        <div class="product-offer d-flex">
+            <div>
+                <h5 class="card-title">Price</h5>
+            </div>
+            <div class="d-flex align-items-center ms-2">
+                <h3>22% OFF</h3>
+            </div>
+        </div>
+        <div class="mb-3" *ngIf="!isInCash">
+            <p class="card-text" *ngIf="!hasInterestFreeInstallments; else interestFreeInstallments"><small class="text-body-secondary">Cuotas por precio</small></p>
+        </div>
+        <div>
+            <p class="card-text">A little description</p>
+        </div>
+        <div class="mt-2" *ngIf="redirectedByUserHistory">
+            <button (click)="deleteHistory($event)">Eliminar</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #interestFreeInstallments>
+    <p class="card-text interestFreeInstallments"><small>Mismo precio en "Cuotas" de "Precio"</small></p>
+</ng-template>

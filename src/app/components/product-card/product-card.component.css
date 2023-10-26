@@ -1,18 +1,55 @@
 .card:hover {
     cursor: pointer;
-    /* box-shadow: 2px 2px 10px 2px ; */
     box-shadow: 0 8px 16px 0 rgba(0,0,0,.2);
 }
-
+.card button {
+    background: none;
+    border: none;
+    color: #3483fa;
+    padding: 0;
+}
 .card-body {
     border-top: 1px solid #EAEAEA;
 }
-.dark-mode .card:hover {
+.card-body h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #00a650;
+}
+.weekly-deal-text {
+    width: 37%;
+    padding: 2px 4px;
+    font-size: 12px;
+    background-color: #3483fa;
+    border-radius: 3px;
+}
+.hidden {
+    display: none !important;
+}
+.interestFreeInstallments {
+    color: #00a650;
+}
+
+.dark-mode.card:hover {
     box-shadow: 0 8px 16px 0 rgba(255,255,255,.1);
 }
+
 @media(max-width: 767px) {
-    .row .col {
+    /* .row .col {
         display: flex;
+        justify-content: center;
+    } */
+    /* .card-body {
+        text-align: center;
+    } */
+    .card-body {
+        text-align: center;
+    }
+    .weekly-deal-card {
+        display: flex;
+        justify-content: center;
+    }
+    .product-offer {
         justify-content: center;
     }
 }

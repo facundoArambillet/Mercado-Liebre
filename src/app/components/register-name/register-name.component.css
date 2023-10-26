@@ -1,0 +1,50 @@
+.register-card{
+    margin-top: 70px;
+}
+
+.register-card-name-title h1{
+    font-size: 24px;
+    font-weight: bold;
+}
+.register-card-name-title h2 {
+    font-size: 16px;
+}
+.register-card-name-content {
+    background-color: white; 
+    border-radius: 5px;
+    padding: 20px;
+}
+.register-card-name-content p {
+    margin: 0;
+}
+.register-card-name-content input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 6px;
+}
+.register-card-name-content >div.row  {
+    padding: 15px;
+}
+.dark-mode {
+    background-color: #31393d;
+}
+
+@media(max-width: 991px) {
+    .register-card-name {
+        width: 70.333333%;
+    }
+}
+@media(max-width: 767px) {
+    .register-card-name {
+        width: 88.333333%;
+    }
+}
+@media(max-width: 576px) {
+    .register-card-name-content>.row>div {
+        width: 100%;
+    }
+    .register-card-name-content>.row>div:nth-child(n+2) {
+        margin-top: 20px;
+    }
+}

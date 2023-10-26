@@ -6,6 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-detail-sidebar.component.css']
 })
 export class ProductDetailSidebarComponent {
+  //Si tiene un descuento mostrarlo en el sidebar
+  isInOffer: boolean = false;
+  //Este seria un atributo de cada producto y dependiendo si es true o false agregaria el "weekly deal"
+  isInWeeklyDeal: boolean = true;
+  //Si tiene 0% y 0 cuotas en payment_plans significa que el pago es de contado
+  isInCash: boolean = false;
+  //Si tiene mas de 1 cuotas(minimo 2), con 0% de interes resalto el texto de las cuotas
+  hasInterestFreeInstallments: boolean = true;
 
   isDarkTheme: boolean = false;
 
@@ -35,7 +43,7 @@ export class ProductDetailSidebarComponent {
   }
 
   ngOnInit() {
-    this. loadAnchorTheme();
+    this.loadAnchorTheme();
     this.observeTheme();
   }
 }

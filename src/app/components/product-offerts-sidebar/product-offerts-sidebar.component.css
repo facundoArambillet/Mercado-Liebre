@@ -1,0 +1,22 @@
+article h1{
+    font-size: 18px;
+    font-weight: bold;
+}
+article h2 {
+    font-size: 14px;
+}
+article h3 {
+    font-size: 12px;
+    color: #666;
+}
+.category a {
+    color: #666;
+    font-size: 14px;
+    font-weight: 400;
+}
+.dark-mode a {
+    color: #DEE2E6;
+}
+.dark-mode h3 {
+    color: #DEE2E6;
+}

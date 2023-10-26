@@ -1,0 +1,65 @@
+.profile-sidebar {
+    height: 100vh;
+    min-width: 220px;
+    max-width: 250px;
+}
+
+.profile-address {
+    width: 100%;
+}
+
+.profile-address-title h1 {
+    font-size: 18px;
+}
+
+.profile-address-body {
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .12);
+    border-radius: 6px;
+}
+
+.profile-address-body-btn {
+    padding: 16px 16px 16px 24px;
+    border-top: 1px solid rgba(0, 0, 0, .12);
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+}
+
+.profile-address-body-btn a {
+    color: #3483FA;
+}
+
+.dark-mode .profile-address-body {
+    background-color: #31393d;
+    box-shadow: 0 1px 2px 0 rgba(255, 255, 255, .2);
+}
+.dark-mode .profile-address-body-btn {
+    border-top: 1px solid rgba(255, 255, 255, .12);
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+@media(max-width: 991px) {
+    .profile-address .col-8 {
+        width: 80.67%;
+    }
+}
+
+@media(max-width: 867px) {
+    .profile-address .col-8 {
+        width: 85.67%;
+    }
+}
+
+@media(max-width: 767px) {
+    .profile-address .col-8 {
+        width: 95.67%;
+    }
+
+    .profile-address-body-btn a {
+        font-size: 15px;
+    }
+}
+
+@media(max-width: 576px) {
+    .profile-address .col-8 {
+        width: 100%;
+    }
+}

@@ -6,8 +6,9 @@
                     <h1>Completá los datos para crear tu cuenta</h1>
                 </div>
                 <div class="register-card-content">
-                    <div class="register-card-content-email" [ngClass]="{'register-card-content-to-select': !isEmailCompleted && !isPasswordCompleted}">
-                        <div class="row">
+                    <div class="register-card-content-email"
+                        [ngClass]="{'register-card-content-to-select': !email && !password}">
+                        <div class="row" *ngIf="!email else emailCompleted">
                             <div class="col-2 register-card-content-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                     class="bi bi-envelope" viewBox="0 0 16 16">
@@ -19,13 +20,15 @@
                                 <h2>Agrega tu email</h2>
                                 <h3 class="text-body-secondary">Recibirás información de tu cuenta.</h3>
                             </div>
-                            <div class="col-2" *ngIf="!isEmailCompleted && !isPasswordCompleted">
-                                <button type="button" class="btn btn-primary" [routerLink]="['/register/email']">Agregar</button>
+                            <div class="col-2" *ngIf="!email && !password">
+                                <button type="button" class="btn btn-primary"
+                                    [routerLink]="['/register/email']">Agregar</button>
                             </div>
                         </div>
                     </div>
-                    <div class="register-card-content-name" [ngClass]="{'register-card-content-to-select': isEmailCompleted && !isPasswordCompleted}">
-                        <div class="row">
+                    <div class="register-card-content-name"
+                        [ngClass]="{'register-card-content-to-select': email && name.length < 2}">
+                        <div class="row" *ngIf="name.length < 2 else nameCompleted">
                             <div class="col-2 register-card-content-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                     class="bi bi-person-badge" viewBox="0 0 16 16">
@@ -39,12 +42,14 @@
                                 <h2>Elegí tu nombre</h2>
                                 <h3 class="text-body-secondary">Contanos cómo querés que te llamemos.</h3>
                             </div>
-                            <div class="col-2" *ngIf="isEmailCompleted && !isPasswordCompleted">
-                                <button type="button" class="btn btn-primary" [routerLink]="['/register/name']">Elegir</button>
+                            <div class="col-2" *ngIf="email && name.length < 2">
+                                <button type="button" class="btn btn-primary"
+                                    [routerLink]="['/register/name']">Elegir</button>
                             </div>
                         </div>
                     </div>
-                    <div class="register-card-content-password" [ngClass]="{'register-card-content-to-select': isEmailCompleted && isPasswordCompleted}">
+                    <div class="register-card-content-password"
+                        [ngClass]="{'register-card-content-to-select': email && name.length > 2}">
                         <div class="row">
                             <div class="col-2 register-card-content-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -57,8 +62,9 @@
                                 <h2>Creá tu contraseña</h2>
                                 <h3 class="text-body-secondary">Mantendrás tu cuenta protegida.</h3>
                             </div>
-                            <div class="col-2" *ngIf="isEmailCompleted && isPasswordCompleted">
-                                <button type="button" class="btn btn-primary" [routerLink]="['/register/password']">Crear</button>
+                            <div class="col-2" *ngIf="email && name.length > 2">
+                                <button type="button" class="btn btn-primary"
+                                    [routerLink]="['/register/password']">Crear</button>
                             </div>
                         </div>
                     </div>
@@ -67,3 +73,45 @@
         </div>
     </article>
 </section>
+
+<ng-template #emailCompleted>
+    <div class="row">
+        <div class="col-2 register-card-content-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-envelope"
+                viewBox="0 0 16 16">
+                <path
+                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+            </svg>
+        </div>
+        <div class="col-8">
+            <h2>Email agregado</h2>
+            <h3 class="text-body-secondary">{{email}}</h3>
+        </div>
+        <div class="col-2" [ngClass]="{'hidden': email && name.length > 2}">
+            <a [routerLink]="['/register/email']">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #nameCompleted>
+    <div class="row">
+        <div class="col-2 register-card-content-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                class="bi bi-person-badge" viewBox="0 0 16 16">
+                <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path
+                    d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z" />
+            </svg>
+        </div>
+        <div class="col-8">
+            <h2>Nombre elegido</h2>
+            <h3 class="text-body-secondary">{{name}}</h3>
+        </div>
+    </div>
+</ng-template>

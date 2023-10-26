@@ -1,7 +1,17 @@
 
 
 @media(max-width: 767px) {
+    .container {
+        max-width: 100%;
+    }
+    .col.mt-3 {
+        display: flex;
+        justify-content: center;
+    }
     .categories {
+        display: none;
+    }
+    .carousel {
         display: none;
     }
     article {

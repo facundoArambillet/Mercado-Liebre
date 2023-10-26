@@ -1,0 +1,46 @@
+article {
+    padding: 30px 0px;
+}
+.address-btn {
+    display: flex;
+    justify-content: center;
+}
+.address-btn input:hover {
+    cursor: pointer;
+    /* border-color: rgb(0, 0, 0, 0.7); */
+}
+.address-btn input {
+    width: 16px;
+    height: 16px;
+}
+.address-text {
+    padding-left: 0;
+}
+.address-text h1 {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.address-text span {
+    font-size: 14px;
+    color: rgb(0, 0, 0, 0.55);
+}
+
+.user-information::before {
+    display: inline-block;
+    content: "";
+    width: 1px;
+    height: 12px;
+    background-color: rgb(0, 0, 0, 0.3);
+    margin: 0px 5px;
+}
+
+.dark-mode p {
+    color: rgb(255, 255, 255, 0.55);
+}
+.dark-mode span {
+    color: rgb(255, 255, 255, 0.55);
+}
+.dark-mode .user-information::before {
+    background-color: rgb(255, 255, 255, 0.3);
+}

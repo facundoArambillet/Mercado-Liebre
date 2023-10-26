@@ -1,0 +1,129 @@
+/* article {
+    background-color: white;
+} */
+.cards>.product-card:nth-child(n+2) {
+    margin-top: 15px;
+}
+
+.product-card {
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .12);
+}
+
+.product-card-seller {
+    padding: 20px 24px;
+}
+
+.product-card-seller h1 {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.product-card-information {
+    border-top: 1px solid #D8D8D8;
+    padding: 24px;
+}
+
+.product-card-information h1 {
+    font-size: 16px;
+}
+
+.product-card-information h2 {
+    font-size: 20px;
+}
+
+.product-card-information button {
+    font-size: 14px;
+    border: none;
+    background-color: white;
+    color: #3483FA;
+}
+
+.product-card-information-stock {
+    display: flex;
+    justify-content: center;
+}
+
+.product-card-information-stock input {
+    width: 104px;
+}
+
+.product-card-information-stock p {
+    font-size: 12px;
+    text-align: center;
+    color: rgb(0, 0, 0, 0.55);
+}
+
+.card-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    box-shadow: none;
+    padding: 48px 16px 0;
+    border-radius: 6px;
+    min-height: 400px;
+}
+
+.card-empty-title h1 {
+    font-size: 18px;
+}
+
+.card-empty-title h2 {
+    font-size: 16px;
+    color: rgba(0, 0, 0, .55);
+}
+
+.card-empty-btn button {
+    width: 328px;
+    height: 48px;
+}
+
+.card-empty .row>div {
+    padding: 15px 0px;
+}
+
+.dark-mode .product-card {
+    background-color: #31393d !important;
+}
+.dark-mode .product-card-information {
+    border-top: 1px solid #616161 !important;
+}
+.dark-mode .product-card-information button {
+    background-color: #31393d !important;
+}
+
+.dark-mode .product-card-information-stock p {
+    color: rgb(255, 255, 255, 0.55);
+}
+
+.dark-mode .card-empty {
+    background-color: #31393d !important;
+}
+
+.dark-mode .card-empty h2 {
+    color: #DEE2E6;
+}
+
+@media(max-width: 991px) {
+    .product-card-information .col-6 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .product-card-information-stock {
+        justify-content: flex-start;
+    }
+
+    .product-card-information-price {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+@media(max-width: 476px) {
+    .card-empty-btn button {
+        width: 83%;
+    }
+}

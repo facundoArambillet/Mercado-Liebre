@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MercadoLiebre';
-  isLogged: boolean = false;
+  isLogged: boolean = true;
 }

@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -6,9 +7,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  private router = inject(Router);
   isLightTheme: boolean = true;
-  isHidden:boolean = true;
+  isHidden: boolean = true;
   @Input() isLogged!: boolean;
+  userAddress: number[] = new Array(2);
   // themesModes() {
   //   if(document.querySelector("body")?.getAttribute("data-bs-theme") == "light") {
 
@@ -31,10 +34,14 @@ export class NavbarComponent {
   //   }
   // }
 
+  //Armar funcion para cambiar la address principal(Deberia buscar las direcciones por usuario y ver el atributo 'isPrincipal')
+  saveAddress() {
+    console.log("Direccion cambiada");
+  }
+
   toggleDropDown() {
     this.isHidden = !this.isHidden;
   }
-
 
   toggleTheme() {
     this.isLightTheme = !this.isLightTheme;

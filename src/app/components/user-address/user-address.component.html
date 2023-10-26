@@ -1,0 +1,29 @@
+<section [ngClass]="{'dark-mode': isDarkTheme }">
+    <article>
+        <div class="d-flex">
+            <div class="profile-sidebar">
+                <app-user-profile-sidebar></app-user-profile-sidebar>
+            </div>
+            <div class="profile-address">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-8 mt-5">
+                            <div class="profile-address-title">
+                                <h1>Domicilios</h1>
+                            </div>
+                            <div class="profile-address-body">
+                                <div *ngFor="let address of userAddress">
+                                    <app-user-address-card></app-user-address-card>
+                                </div>
+                                <div class="profile-address-body-btn">
+                                    <a [routerLink]="['/address/create']">Agregar domicilio</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

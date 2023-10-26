@@ -1,27 +1,55 @@
 <article>
     <div class="container">
-        <div class="col-5 register-card-email"  [ngClass]="{'dark-mode': isDarkTheme }">
+        <div class="col-5 register-card-email" [ngClass]="{'dark-mode': isDarkTheme }">
             <div class="register-card-email-title">
                 <h1>Ingresá tu email</h1>
                 <h2>Asegurate de tener acceso a él.</h2>
             </div>
             <div class="register-card-email-content pt-3">
-                <div class="register-card-email-content-input">
-                    <input type="email" placeholder="Ej: MercadoLiebre@gmail.com" [(ngModel)]="userEmail"
-                        name="userEmail">
+                <div class="register-card-email-content-input" *ngIf="isEmailFormatValid; else emailInvalid">
+                    <input (input)="setEmailFormat()" type="email" placeholder="Ej: MercadoLiebre@gmail.com"
+                        [(ngModel)]="userEmail" name="userEmail">
                 </div>
-                <div class="form-check pt-4">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" [(ngModel)]="isChecked">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Acepto los Términos y condiciones y autorizo el uso de mis datos de acuerdo a la Declaración de
-                        Privacidad.
-                    </label>
+                <div class="form-check mt-4">
+                    <div class="d-flex align-items-start justify-content-between">
+                        <div class="container-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                                [(ngModel)]="isChecked">
+                        </div>
+                        <div>
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Acepto los Términos y condiciones y autorizo el uso de mis datos de acuerdo a la
+                                Declaración
+                                de
+                                Privacidad.
+                            </label>
+                        </div>
+                    </div>
                 </div>
-                <div class="register-email-actions pt-4">
-                    <button type="submit" class="btn btn-primary"
-                    [disabled]="!userEmail" (click)="onSubmit()">Continuar</button>
+                <div class="register-email-actions mt-4">
+                    <button type="submit" class="btn btn-primary" [disabled]="!userEmail"
+                        (click)="onSubmit()">Continuar</button>
                 </div>
             </div>
         </div>
     </div>
 </article>
+<ng-template #emailInvalid>
+    <div class="register-card-email-content-input">
+        <input (input)="setEmailFormat()" type="email" placeholder="Ej: MercadoLiebre@gmail.com" [(ngModel)]="userEmail"
+            name="userEmail">
+        <div class="register-card-email-content-invalid row mt-2">
+            <div class="col-1 d-flex">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path
+                        d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                </svg>
+            </div>
+            <div class="col">
+                <p>Usá el formato nombre@ejemplo.com.</p>
+            </div>
+        </div>
+    </div>
+</ng-template>

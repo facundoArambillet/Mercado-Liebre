@@ -12,6 +12,7 @@
 }
 .dark-mode {
     background-color: #31393d !important;
+    border-bottom: 1px solid #616161 !important;
 }
 .dark-mode h2{
     color: white;
@@ -19,6 +20,7 @@
 .dark-mode p{
     color: white;
 }
+
 @media(max-width: 991px) {
     .product-card-content {
         padding-left: 28px;

@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
+import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
   selector: 'app-register',
@@ -6,12 +7,20 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  @Input() isEmailCompleted: boolean = false;
-  @Input() isPasswordCompleted: boolean = false;
+  private registerService = inject(RegisterService);
+
+  email: string = "";
+  name: string = "";
+  password: string = "";
 
   isDarkTheme: boolean = false;
 
-
+  loadCredentials() {
+    this.email = this.registerService.getEmail();
+    this.name = `${this.registerService.getName().toLowerCase()} ${this.registerService.getLastName().toLowerCase()}`;
+    this.password = this.registerService.getPassword();
+  }
+  
   loadAnchorTheme() {
     let bodyTheme = document.querySelector("body")?.getAttribute("data-bs-theme");
     bodyTheme == "dark" ? this.isDarkTheme = true : this.isDarkTheme = false;
@@ -38,7 +47,8 @@ export class RegisterComponent {
   }
 
   ngOnInit() {
-    this. loadAnchorTheme();
+    this.loadAnchorTheme();
+    this.loadCredentials();
     this.observeTheme();
   }
 }

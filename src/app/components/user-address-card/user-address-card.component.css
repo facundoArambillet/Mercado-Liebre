@@ -1,0 +1,79 @@
+article {
+    padding: 30px 20px;
+}
+
+.address-card-information h1 {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.address-card-information p {
+    font-size: 14px;
+    color: rgb(0, 0, 0, 0.55);
+    margin-bottom: 0;
+}
+
+.address-card-icon-house {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.address-card-btn-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+}
+
+.address-card-btn-menu:hover {
+    background-color: #EBEBEB;
+    border-radius: 50%;
+}
+.address-actions ul{
+    list-style-type: none;
+}
+.address-actions li {
+    cursor: pointer;
+}
+.dark-mode .address-card-btn-menu:hover {
+    background-color: black;
+}
+
+.dark-mode .address-card-information p {
+    color: rgb(255, 255, 255, 0.55);
+}
+.dark-mode .address-actions li a{
+    color: #DEE2E6;
+}
+@media(max-width: 1200px) {
+    .address-card-btn {
+        width: 10.3%;
+    }
+}
+
+@media(max-width: 767px) {
+    .address-card-btn {
+        width: 15.3%;
+    }
+
+    .address-card-icon-house {
+        display: none;
+    }
+
+    .address-card-information h1 {
+        font-size: 14px;
+    }
+
+    .address-card-information p {
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 576px) {
+    .address-card-btn {
+        display: none;
+    }
+}

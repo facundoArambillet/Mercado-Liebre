@@ -95,7 +95,7 @@
                 </form>
             </div>
             <div class="col-xl-4 col-lg-4 publicity navbar-hidden">
-                <p>Logo de algo</p>
+                <img src="./assets/disney_publicity.png" alt="" width="100%">
             </div>
             <div class="col-2 navbar-hidden">
                 <div class="row" [ngClass]="{'ubication': isLightTheme, 'ubication-dark-mode': !isLightTheme}"
@@ -104,9 +104,57 @@
                         <i class="bi bi-geo-alt-fill"></i>
                     </div>
                     <div class="col send">
-                        <small id="name">Enviar a : "Nombre" </small>
-                        <br>
-                        <small id="adress">Direccion: "Direccion"</small>
+                        <div>
+
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#userAddress">
+                                <small id="name">Enviar a : "Nombre"
+                                </small>
+                                <br>
+                                <small id="adress">Direccion: "Direccion"</small>
+                            </a>
+
+                            <div class="modal fade" id="userAddress" tabindex="-1" aria-labelledby="userAddressLabel"
+                                aria-hidden="true">
+                                <div class="modal-lg modal-dialog  modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header" style="border-bottom: none;">
+                                            <h1 class="modal-title fs-3" id="userAddressLabel">Elegí dónde recibir tus
+                                                compras</h1>
+                                            <p>
+                                                Podrás ver costos y tiempos de entrega precisos en todo lo que busques.
+                                            </p>
+
+                                        </div>
+                                        <div class="modal-body">
+                                            <div *ngIf="userAddress.length > 0 else userWithoutAddress">
+                                                <h2>En una de tus direcciones</h2>
+                                                <div class="modal-body-cards">
+                                                    <div class="address-card" *ngFor="let address of userAddress">
+                                                        <app-navbar-address-card></app-navbar-address-card>
+                                                    </div>
+                                                    <div class="address-update-btn">
+                                                        <div>
+                                                            <a [routerLink]="['/address']">Editar direcciones</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="address-actions-btns d-flex justify-content-end mt-4">
+                                                    <div class="address-cancel-btn">
+                                                        <button type="button" class="btn" data-bs-dismiss="modal">Cancelar</button>
+                                                    </div>
+                                                    <div class="address-save-btn">
+                                                        <button type="button" class="btn btn-primary" (click)="saveAddress()">Guardar Cambios</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -119,25 +167,29 @@
                             Categorias
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" [routerLink]="['/products', 'Categoria']">Categories</a></li>
+                            <li><a class="dropdown-item" [routerLink]="['/products', 'category']">Categories</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/']">Ofertas</a>
+                        <a class="nav-link" [routerLink]="['/offers']">Ofertas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/']">Historial</a>
+                        <a class="nav-link" [routerLink]="['/history']">Historial</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/']">Supermercado</a>
+                        <a class="nav-link" [routerLink]="['/products/category-family', 'supermarket']">Supermercado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/']">Moda</a>
+                        <a class="nav-link" [routerLink]="['/products/category-family','fashion']">Moda</a>
                     </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/cart']">Carrito</a>
+                    </li> -->
 
                 </ul>
             </div>
-            <div class="col-4 ps-auto d-flex align-items-center justify-content-center navbar-hidden">
+            <div class="col-4 ps-auto d-flex align-items-center justify-content-center navbar-hidden"
+                style="padding: 0;">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item dropdown" *ngIf="isLogged; else notLoggedProfile">
                         <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
@@ -145,18 +197,18 @@
                             Profile
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" [routerLink]="['/']">Mi Perfil</a></li>
+                            <li><a class="dropdown-item" [routerLink]="['/profile']">Mi Perfil</a></li>
                             <li><a class="dropdown-item" [routerLink]="['/']">Cerrar sesison</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/']">Mis compras</a>
+                        <a class="nav-link" [routerLink]="['/purchases']">Mis compras</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-disabled="true" [routerLink]="['/']">Ayuda</a>
+                        <a class="nav-link" aria-disabled="true" [routerLink]="['/help']">Ayuda</a>
                     </li>
                     <li class="nav-item">
-                        <button class="btn rounded-fill">
+                        <button title="Carrito" class="btn rounded-fill" [routerLink]="['/cart']">
                             <i class="bi bi-cart2"></i>
                         </button>
                     </li>
@@ -182,31 +234,37 @@
         <div class="dropdown_menu"
             [ngClass]="{'': !isHidden, 'hidden': isHidden, 'dark-mode-btn-toggle': !isLightTheme, '': isLightTheme}">
             <li class="nav-item" *ngIf="isLogged; else notLoggedProfile">
-                <a class="nav-link" [routerLink]="['/']">Profile</a>
+                <a class="nav-link" [routerLink]="['/profile']">Profile</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Categorias
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" [routerLink]="['/products', 'Categoria']">Categories</a></li>
+                    <li><a class="dropdown-item" [routerLink]="['/products', 'category']">Categories</a></li>
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" aria-current="page" [routerLink]="['/']">Ofertas</a>
+                <a class="nav-link" aria-current="page" [routerLink]="['/offers']">Ofertas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/']">Historial</a>
+                <a class="nav-link" [routerLink]="['/history']">Historial</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" aria-disabled="true"
+                    [routerLink]="['/products/category-family', 'supermarket']">Supermercado</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" aria-disabled="true" [routerLink]="['/']">Supermercado</a>
-            </li>
+                <a class="nav-link" aria-disabled="true"
+                    [routerLink]="['/products/category-family', 'fashion']">Moda</a>
+            </li> -->
             <li class="nav-item">
-                <a class="nav-link" aria-disabled="true" [routerLink]="['/']">Moda</a>
+                <a class="nav-link" [routerLink]="['/cart']">Carrito</a>
             </li>
+
             <li class="nav-item">
                 <button class="btn rounded-fill" (click)="toggleTheme()">
-                    <i id="dl-icon" [class]="'bi ' + (isLightTheme ? 'bi-moon-fill' : 'bi-sun-fill')"></i>
+                    <i id="dl-icon" [ngClass]=" isLightTheme ? 'bi bi-moon-fill' : 'bi bi-sun-fill' "></i>
                 </button>
             </li>
         </div>
@@ -217,4 +275,7 @@
     <li class="nav-item">
         <a class="nav-link" [routerLink]="['/login']">Login</a>
     </li>
+</ng-template>
+<ng-template #userWithoutAddress>
+    <h2>No posees direcciones registradas</h2>
 </ng-template>

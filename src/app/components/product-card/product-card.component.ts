@@ -6,7 +6,16 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent {
-  @Input() products!: Number[];
+  @Input() product!: number[];
+  @Input() redirectedByUserHistory!: boolean;
+  //Este seria un atributo de cada producto y dependiendo si es true o false agregaria el "weekly deal"
+  isInWeeklyDeal: boolean = true;
+  //Si tiene un descuento mostrarlo en la card(puede estar en oferta y no entrar en la oferta semanal)
+  isInOffer: boolean = true;
+  //Si tiene 0% y 0 cuotas en payment_plans significa que el pago es de contado
+  isInCash: boolean = false;
+  //Si tiene mas de 1 cuotas(minimo 2), con 0% de interes resalto el texto de las cuotas
+  hasInterestFreeInstallments: boolean = false;
 
   isDarkTheme: boolean = false;
 
@@ -34,7 +43,11 @@ export class ProductCardComponent {
       observer.observe(targetNode, config);
     }
   }
-
+  deleteHistory(event: Event) {
+    //Llamar endpoint de delete
+    event.stopPropagation();
+    console.log("btn delete");
+  }
   ngOnInit() {
     this. loadAnchorTheme();
     this.observeTheme();

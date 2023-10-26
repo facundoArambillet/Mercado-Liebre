@@ -1,0 +1,65 @@
+.address-create-title h1 {
+    font-size: 24px;
+}
+.address-create-body-card {
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+    padding: 32px 32px 24px;
+}
+.address-create-body input {
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    font-size: 16px;
+    min-height: 48px;
+    width: 100%;
+}
+.address-create-body p {
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 10px;
+    margin-bottom: 0.1rem;
+}
+.address-create-body .user-name .col-8>p:nth-child(n+2) {
+    font-size: 13px;
+    color: rgba(0,0,0,.55);
+}
+.postal-code a{
+    color: #3483fa;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 400;
+}
+.dark-mode .address-create-body-card{
+    background-color: #31393d !important;;
+    box-shadow: 0 1px 3px 0 rgba(255,255,255,.2);
+}
+.dark-mode .address-create-body .user-name .col-8>p:nth-child(n+2)  {
+    color: rgba(255,255,255,.55);
+}
+.address-create-body-action button {
+    padding: 10px 20px;
+}
+@media(max-width: 991px) {
+    .address-create {
+        width: 80.666667%;
+    }
+}
+@media(max-width: 767px) {
+    .address-create {
+        width: 100%;
+    }
+    .address-create-body-action button {
+        width: 100%;
+    }
+}
+@media(max-width: 576px) {
+    .address-create-body-card .col-8 {
+        width: 100%;
+    }
+    .address-create-body-card .col-6 {
+        width: 100%;
+    }
+    .address-create-body-card .col {
+        margin-top: 1rem !important;
+    }
+}

@@ -1,1 +1,32 @@
-<p>register-name works!</p>
+<article>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-7 register-card-name" >
+                <div class="register-card-name-title">
+                    <h1>Elegí cómo querés que te llamemos</h1>
+                    <h2>Verán el nombre que elijas todas las personas que interactúen con vos en Mercado Libre y Mercado Pago.</h2>
+                </div>
+                <div class="register-card-name-content mt-4" [ngClass]="{'dark-mode': isDarkTheme }">
+                    <div class="row">
+                        <div class="col-6">
+                            <p>Nombre</p>
+                            <input type="text"  [(ngModel)]="userName"
+                            name="userName">
+                        </div>
+                        <div class="col-6">
+                            <p>Apellido</p>
+                            <input type="text"  [(ngModel)]="userLastName"
+                            name="userLastEmail">
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-load d-flex justify-content-end mt-3">
+                    <div>
+                        <button type="submit" class="btn btn-primary"[disabled]="!userName"
+                        (click)="onSubmit()">Continuar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

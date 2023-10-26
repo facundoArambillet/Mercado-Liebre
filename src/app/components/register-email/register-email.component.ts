@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
   selector: 'app-register-email',
@@ -6,14 +8,34 @@ import { Component } from '@angular/core';
   styleUrls: ['./register-email.component.css']
 })
 export class RegisterEmailComponent {
+  private router = inject(Router);
+  private registerService = inject(RegisterService);
+
   userEmail: string = "";
   isChecked: boolean = false;
-
-  onSubmit() {
-    console.log(this.isChecked)
-  }
+  isEmailFormatValid: boolean = true;
 
   isDarkTheme: boolean = false;
+
+  onSubmit() {
+    const regexEmail = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+    if (regexEmail.test(this.userEmail)) {
+      if (this.isChecked) {
+        this.registerService.setEmail(this.userEmail);
+        this.router.navigate(["/register"])
+      } else {
+        document.querySelector(".form-check")?.classList.add("policies-not-confirmed");
+      }
+
+    } else {
+      this.isEmailFormatValid = false;
+    }
+
+  }
+  
+  setEmailFormat() {
+    this.isEmailFormatValid = true;
+  }
 
   loadAnchorTheme() {
     let bodyTheme = document.querySelector("body")?.getAttribute("data-bs-theme");
@@ -41,7 +63,8 @@ export class RegisterEmailComponent {
   }
 
   ngOnInit() {
-    this. loadAnchorTheme();
+    this.loadAnchorTheme();
     this.observeTheme();
+    console.log(this.isEmailFormatValid)
   }
 }

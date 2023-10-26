@@ -11,6 +11,9 @@
     .categories {
        display: none;
     }
+    .container {
+        max-width: 100%;
+    }
     .container >* {
         display: flex;
         justify-content: center;

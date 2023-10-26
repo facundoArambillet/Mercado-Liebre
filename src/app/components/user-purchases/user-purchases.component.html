@@ -1,0 +1,19 @@
+<section>
+    <article>
+        <div class="d-flex">
+            <div class="profile-sidebar">
+                <app-user-profile-sidebar></app-user-profile-sidebar>
+            </div>
+            <div class="profile-purchases">
+                <div class="profile-pruchases-content">
+                    <app-user-purchases-content></app-user-purchases-content>
+                </div>
+                <div class="profile-purchases-card mt-5">
+                    <div class="mt-3" *ngFor="let purchase of purchases">
+                        <app-user-purchases-card></app-user-purchases-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

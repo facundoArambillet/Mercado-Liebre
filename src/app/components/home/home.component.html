@@ -1,4 +1,4 @@
-<section>
+<section class="carousel">
     <app-carousel></app-carousel>
 </section>
 <section>
@@ -9,7 +9,11 @@
                     <h4>Basado en tu ultima visita</h4>
                 </div>
                 <div>
-                    <app-product-card [products]="productsHistory"></app-product-card>
+                    <div class="row">
+                        <div class="col mt-3" *ngFor="let product of productsHistory">
+                            <app-product-card></app-product-card>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -17,25 +21,49 @@
     <article>
         <div class="container mt-5" *ngIf="isLogged">
             <h4>Relacionado con tus visita en: "Familia de categorias de ultima visita"</h4>
-            <app-product-card [products]="productsHistory"></app-product-card>
+            <div>
+                <div class="row">
+                    <div class="col mt-3" *ngFor="let product of productsHistory">
+                        <app-product-card></app-product-card>
+                    </div>
+                </div>
+            </div>
         </div>
     </article>
     <article>
         <div class="container mt-5">
             <h4>Ofertas</h4>
-            <app-product-card [products]="productsHistory"></app-product-card>
+            <div>
+                <div class="row">
+                    <div class="col mt-3" *ngFor="let product of productsHistory">
+                        <app-product-card></app-product-card>
+                    </div>
+                </div>
+            </div>
         </div>
     </article>
     <article>
         <div class="container mt-5">
             <h4>Las mejores tiendas te esperan</h4>
-            <app-product-card [products]="productsHistory"></app-product-card>
+            <div>
+                <div class="row">
+                    <div class="col mt-3" *ngFor="let product of productsHistory">
+                        <app-product-card></app-product-card>
+                    </div>
+                </div>
+            </div>
         </div>
     </article>
     <article>
         <div class="container mt-5" *ngIf="isLogged">
             <h4>Más vendidos en "La ultima categoria del historial"</h4>
-            <app-product-card [products]="productsHistory"></app-product-card>
+            <div>
+                <div class="row">
+                    <div class="col mt-3" *ngFor="let product of productsHistory">
+                        <app-product-card></app-product-card>
+                    </div>
+                </div>
+            </div>
         </div>
     </article>
     <article class="categories">

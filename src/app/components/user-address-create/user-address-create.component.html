@@ -1,0 +1,78 @@
+<section [ngClass]="{'dark-mode': isDarkTheme }">
+    <article class="mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="address-create col-8">
+                    <div class="address-create-title">
+                        <h1>Agregá un domicilio</h1>
+                    </div>
+                    <div class="address-create-body mt-2">
+                        <div class="address-create-body-card">
+                            <div class="user-name">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <p>Nombre y apellido</p>
+                                        <input type="text">
+                                        <p>Tal cual figure en el DNI.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="postal-code mt-3">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p>Codigo postal</p>
+                                        <div class="">
+                                            <div>
+                                                <input type="text">
+                                            </div>
+                                            <div>
+                                                <a href="https://www.oca.com.ar/Busquedas/CodigosPostales" target="_blank">No se mi codigo</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="province-location mt-3">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p>Provincia</p>
+                                        <input type="text">
+                                    </div>
+                                    <div class="col">
+                                        <p>Localidad</p>
+                                        <input type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="street-avenue mt-3">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p>Calle/Avenida</p>
+                                        <input type="text">
+                                    </div>
+                                    <div class="col">
+                                        <p>Numero</p>
+                                        <input type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="street-avenue mt-3">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p>Telefono de contacto</p>
+                                        <input type="tel">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="address-create-body-action mt-3">
+                            <div class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary" (click)="saveAddress()">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

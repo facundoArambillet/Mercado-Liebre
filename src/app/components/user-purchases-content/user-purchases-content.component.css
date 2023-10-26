@@ -1,0 +1,48 @@
+.user-purchases-title h1 {
+    font-size: 24px;
+}
+.user-purchases-input span {
+    position: absolute;
+    padding: 1px 10px;
+}
+.user-purchases-input input {
+    /* padding-left: 30px; */
+    padding: 8px 40px;
+    height: 32px;
+    background-color: #E4E4E4;
+    border: none;
+    border-radius: 16px;
+}
+.user-purchases-filter {
+    display: flex;
+    align-items: center;
+}
+.user-purchases-filter p {
+    font-size: 14px;
+    margin: 0;
+}
+.user-purchases-quantity::after {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 18px;
+    background-color: rgba(0,0,0,.1);
+    margin: 0 22px;
+    vertical-align: middle;
+}
+
+.dark-mode .user-purchases-quantity::after {
+    background-color: rgba(255,255,255,.1);
+}
+.dark-mode .user-purchases-input input {
+    background-color: #31393d;
+}
+/* .dark-mode .user-purchases-input input{
+    color: black;
+}
+.dark-mode .user-purchases-input input i{
+    color: black;
+}
+.dark-mode .user-purchases-input svg {
+    color: black;
+} */

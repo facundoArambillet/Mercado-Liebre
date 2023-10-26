@@ -1,0 +1,48 @@
+<section [ngClass]="{'dark-mode': isDarkTheme }">
+    <article>
+        <div class="sidebar-card" *ngIf="products.length > 0; else productsEmpty">
+            <div class="sidebar-header">
+                <h1>Resumen de compra</h1>
+            </div>
+            <div class="sidebar-body">
+                <div>
+                    <div class="row">
+                        <div class="col-6">
+                            <p>Productos("cantidad")</p>
+                        </div>
+                        <div class="col sidebar-body-price">
+                            <p>$ "Precio"</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="row">
+                        <div class="col-6">
+                            <h2>Total</h2>
+                        </div>
+                        <div class="col sidebar-body-price">
+                            <h2>$ "Precio"</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-body-btn-buy mt-4">
+                    <button class="btn btn-primary" (click)="buyProducts()">Continuar Compra</button>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<ng-template #productsEmpty>
+    <div class="products-empty">
+        <div class="sidebar-card">
+            <div class="sidebar-header">
+                <h1>Resumen de compra</h1>
+            </div>
+            <div class="sidebar-body">
+                <div>
+                    <span>Aquí verás los importes de tu compra una vez que agregues productos.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

@@ -27,6 +27,23 @@ import { FormsModule } from '@angular/forms';
 import { RegisterEmailComponent } from './components/register-email/register-email.component';
 import { RegisterNameComponent } from './components/register-name/register-name.component';
 import { RegisterPasswordComponent } from './components/register-password/register-password.component';
+import { ProductOffertsComponent } from './components/product-offerts/product-offerts.component';
+import { ProductOffertsSidebarComponent } from './components/product-offerts-sidebar/product-offerts-sidebar.component';
+import { UserHistoryComponent } from './components/user-history/user-history.component';
+import { HelpComponent } from './components/help/help.component';
+import { UserPurchasesComponent } from './components/user-purchases/user-purchases.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UserProfileSidebarComponent } from './components/user-profile-sidebar/user-profile-sidebar.component';
+import { UserProfileContentComponent } from './components/user-profile-content/user-profile-content.component';
+import { UserPurchasesContentComponent } from './components/user-purchases-content/user-purchases-content.component';
+import { UserPurchasesCardComponent } from './components/user-purchases-card/user-purchases-card.component';
+import { NavbarAddressCardComponent } from './components/navbar-address-card/navbar-address-card.component';
+import { UserAddressComponent } from './components/user-address/user-address.component';
+import { UserAddressCardComponent } from './components/user-address-card/user-address-card.component';
+import { UserAddressCreateComponent } from './components/user-address-create/user-address-create.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ShoppingCartContentComponent } from './components/shopping-cart-content/shopping-cart-content.component';
+import { ShoppingCartSidebarComponent } from './components/shopping-cart-sidebar/shopping-cart-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +71,23 @@ import { RegisterPasswordComponent } from './components/register-password/regist
     RegisterEmailComponent,
     RegisterNameComponent,
     RegisterPasswordComponent,
+    ProductOffertsComponent,
+    ProductOffertsSidebarComponent,
+    UserHistoryComponent,
+    HelpComponent,
+    UserPurchasesComponent,
+    UserProfileComponent,
+    UserProfileSidebarComponent,
+    UserProfileContentComponent,
+    UserPurchasesContentComponent,
+    UserPurchasesCardComponent,
+    NavbarAddressCardComponent,
+    UserAddressComponent,
+    UserAddressCardComponent,
+    UserAddressCreateComponent,
+    ShoppingCartComponent,
+    ShoppingCartContentComponent,
+    ShoppingCartSidebarComponent,
 
   ],
   imports: [

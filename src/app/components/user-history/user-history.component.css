@@ -1,0 +1,86 @@
+.user-history-header h1 {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.user-history-header-settings button {
+    color: #3483fa;
+    background: none;
+    border: none;
+}
+
+.user-history-header-settings-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 6px;
+}
+.user-history-header-settings-content button {
+    padding: 10px 25px;
+    border: none;
+    color: #3483fa;
+    border-radius: 6px;
+    background-color: #D1DFF2;
+}
+.user-history-header-settings-content-action span::after {
+    display: inline-block;
+    width: 2px;
+    height: 30px;
+    content: "";
+    background-color: rgba(0, 0, 0, .1);
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.modal-content >div {
+    border: none;
+}
+.modal-footer-btn-delete {
+    background-color: #2968C8 !important;
+    color: white !important;
+}
+.modal-footer-btn-cancel {
+    background: none !important;
+}
+.hidden {
+    display: none !important;
+}
+.dark-mode .user-history-header-settings-content {
+    background-color: #31393d !important;
+}
+.dark-mode .user-history-header-settings-content-action span::after  {
+    background-color: rgba(255, 255, 255, .1);
+}
+@media(max-width: 1400px) {
+    .user-history-header-settings {
+        margin-right: 60px;
+    }
+}
+
+@media(max-width: 1200px) {
+    .user-history-header-settings {
+        margin-right: 0;
+    }
+}
+
+@media(max-width: 991px) {
+    .user-history-header-settings {
+        margin-right: 43px;
+    }
+}
+
+@media(max-width: 767px) {
+    .user-history-header-title {
+        display: none;
+    }
+
+    .user-history-header-settings {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .user-history-content .col {
+        display: flex;
+        justify-content: center;
+    }
+}

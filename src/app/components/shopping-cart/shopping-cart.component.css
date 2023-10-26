@@ -1,0 +1,14 @@
+
+@media(max-width: 991px) {
+    .container {
+        max-width: 100%;
+    }
+}
+@media(max-width: 767px) {
+    .col-8 {
+        width: 100%;
+    }
+    .col {
+        margin-top: 25px;
+    }
+}

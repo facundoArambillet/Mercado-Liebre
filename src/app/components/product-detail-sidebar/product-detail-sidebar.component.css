@@ -1,5 +1,5 @@
 /* Afecto unicamente a los hijos directos */
-.sidebar > *{
+.sidebar>* {
     border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 8px;
     padding: 16px;
@@ -20,6 +20,12 @@
     color: rgba(0, 0, 0, .9);
 }
 
+.sidebar-card-buy-price h1 {
+    font-size: 16px;
+    color: rgba(0, 0, 0, .55);
+    text-decoration: line-through;
+}
+
 .sidebar-card-buy-price p {
     font-weight: 400;
     font-size: 18px;
@@ -27,6 +33,12 @@
 
 .sidebar-card-buy-price h2 {
     font-size: 28px;
+}
+
+.sidebar-card-buy-price h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #00a650;
 }
 
 .sidebar-card-buy-quantity {
@@ -61,9 +73,10 @@
     font-size: 12px;
 }
 
-.sidebar-seller-detail-header .col-4 p{
+.sidebar-seller-detail-header .col-4 p {
     text-align: center;
 }
+
 .sidebar-seller-detail-header-about a {
     font-size: 14px;
 }
@@ -72,14 +85,26 @@
     font-size: 18px;
     font-weight: 400;
 }
+
 .sidebar-warranty-detail-mp {
     font-size: 14px;
 }
+
 .sidebar-warranty-detail-text {
     font-size: 14px;
-    color: rgba(0,0,0,.55);
+    color: rgba(0, 0, 0, .55);
 }
 
+.interestFreeInstallments {
+    color: #00a650;
+}
+.weekly-deal-text {
+    width: 95px;
+    padding: 2px 4px;
+    font-size: 12px;
+    background-color: #3483fa;
+    border-radius: 3px;
+}
 .dark-mode {
     border: 1px solid rgba(255, 255, 255, .2) !important;
 }
@@ -95,12 +120,20 @@
 .dark-mode h1 {
     color: #DEE2E6 !important;
 }
+
+.dark-mode .interestFreeInstallments {
+    color: #009247 !important;
+    font-weight: bold;
+}
+
 #aboutWarrantyLabel {
     font-weight: bold;
 }
-.modal-body h2{
+
+.modal-body h2 {
     font-weight: bold;
 }
+
 @media(max-width: 1199px) {
 
     .sidebar-card-buy-header p {
@@ -119,7 +152,7 @@
         font-size: 26px;
     }
 
-    .sidebar-card-buy-benefits-content p{
+    .sidebar-card-buy-benefits-content p {
         font-size: 12px;
     }
 }
@@ -141,28 +174,40 @@
     .sidebar-card-buy-price h2 {
         font-size: 24px;
     }
+
+    .sidebar-card-buy-price h3 {
+        font-size: 16px;
+    }
+
     .sidebar-card-buy-btn button {
         font-size: 14px;
     }
-    .sidebar-card-buy-benefits-content p{
+
+    .sidebar-card-buy-benefits-content p {
         font-size: 11px;
     }
-    .sidebar-seller-detail-header-icons svg{
+
+    .sidebar-seller-detail-header-icons svg {
         width: 22px;
         height: 22px;
     }
+
     .sidebar-seller-detail-header .sales-quantity h3 {
         font-size: 18px;
     }
+
     .sidebar-seller-detail-header-about a {
         font-size: 12px;
     }
+
     .sidebar-seller-detail-header p {
         font-size: 10px;
     }
+
     .sidebar-warranty p {
         font-size: 12px;
     }
+
 }
 
 @media(max-width: 767px) {
@@ -179,6 +224,10 @@
         font-size: 12px;
     }
 
+    .sidebar-card-buy-price h1 {
+        font-size: 14px;
+    }
+
     .sidebar-card-buy-price h2 {
         font-size: 22px;
     }
@@ -191,7 +240,7 @@
         font-size: 12px;
     }
 
-    .sidebar-card-buy-benefits-content p{
+    .sidebar-card-buy-benefits-content p {
         font-size: 10px;
     }
 
@@ -206,9 +255,10 @@
     .sidebar-warranty p {
         font-size: 11px;
     }
+
 }
 
-@media(max-width: 575px) {
+@media(max-width: 576px) {
 
     .sidebar-card-buy-header p {
         font-size: 10px;
@@ -222,20 +272,30 @@
         font-size: 10px;
     }
 
+    .sidebar-card-buy-price h1 {
+        font-size: 12px;
+    }
+
     .sidebar-card-buy-price h2 {
         font-size: 18px;
     }
 
-    .sidebar-card-buy-benefits-content p{
+    .sidebar-card-buy-price h3 {
+        font-size: 14px;
+    }
+
+    .sidebar-card-buy-benefits-content p {
         font-size: 10px;
     }
 
     .sidebar-seller-detail-header .sales-quantity h3 {
         font-size: 14px;
     }
+
     .sidebar-seller-detail-header-about a {
         font-size: 10px;
     }
+
     .sidebar-seller-detail-header p {
         font-size: 9px;
     }
@@ -267,8 +327,12 @@
         font-size: 12px;
     }
 
-    .sidebar-card-buy-benefits-content p{
+    .sidebar-card-buy-benefits-content p {
         font-size: 10px;
+    }
+
+    .weekly-deal-text {
+        display: none;
     }
 }
 
@@ -294,7 +358,7 @@
         font-size: 12px;
     }
 
-    .sidebar-card-buy-benefits-content p{
+    .sidebar-card-buy-benefits-content p {
         font-size: 10px;
     }
 }

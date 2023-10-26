@@ -1,0 +1,28 @@
+.profile-sidebar {
+    min-width: 220px;
+    max-width: 250px;
+}
+.profile-purchases {
+    width: 100%;
+    /* padding: 35px 0px; */
+    padding: 35px 25px;
+}
+.profile-purchases-card {
+    width: 95%;
+}
+@media(max-width: 991px) {
+    .profile-purchases-card {
+        width: 100%;
+    }
+}
+@media(max-width: 767px) {
+    .profile-purchases {
+        padding: 35px 0px;
+    }
+    .profile-pruchases-content {
+        display: none;
+    }
+    .profile-purchases-card {
+        margin-top: 0 !important;
+    }
+}
