@@ -51,7 +51,9 @@ article {
 .dark-mode .sidebar-body {
     border-top: 1px solid #616161 !important;
 }
-
+.dark-mode .products-empty {
+    background-color: #31393d !important;
+}
 .dark-mode .products-empty h1 {
     color: #DEE2E6;
 }
