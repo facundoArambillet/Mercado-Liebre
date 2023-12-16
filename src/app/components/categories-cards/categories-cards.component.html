@@ -1,11 +1,11 @@
 <div class="container bg-light" [ngClass]="{'dark-mode': isDarkTheme }">
     <div class="row">
-        <div class="category-card col-lg-2 col-md-4 pt-3" *ngFor="let category of categoryFamilies" [routerLink]="['/products/category-family', category.name]">
+        <div class="category-card col-lg-2 col-md-4 pt-3" *ngFor="let category of categoriesFamilyPopular" [routerLink]="['/products/category-family', category.type]">
             <div class="category-card-image d-flex justify-content-center align-item-center">
-                <img src="https://images.vexels.com/media/users/3/158483/isolated/preview/68984377806c969d9504f0faaaede75f-silueta-de-computadora.png" alt="" width="100px" height="100px">
+                <img src={{convertValidImage(category)}} alt="" width="100px" height="100px">
             </div>
             <div class="category-card-name d-flex justify-content-center align-item-center">
-                <p class="card-text">{{category.name}}</p>
+                <p class="card-text">{{category.type}}</p>
             </div>
         </div>
     </div>

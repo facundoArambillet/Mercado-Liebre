@@ -12,7 +12,7 @@
                                 <div class="row">
                                     <div class="col-8">
                                         <p>Nombre y apellido</p>
-                                        <input type="text">
+                                        <input type="text" [placeholder]="userName" disabled>
                                         <p>Tal cual figure en el DNI.</p>
                                     </div>
                                 </div>
@@ -23,7 +23,7 @@
                                         <p>Codigo postal</p>
                                         <div class="">
                                             <div>
-                                                <input type="text">
+                                                <input type="number" [(ngModel)]="postalCode">
                                             </div>
                                             <div>
                                                 <a href="https://www.oca.com.ar/Busquedas/CodigosPostales" target="_blank">No se mi codigo</a>
@@ -36,11 +36,11 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <p>Provincia</p>
-                                        <input type="text">
+                                        <input type="text" [(ngModel)]="province">
                                     </div>
                                     <div class="col">
                                         <p>Localidad</p>
-                                        <input type="text">
+                                        <input type="text" [(ngModel)]="city">
                                     </div>
                                 </div>
                             </div>
@@ -48,11 +48,11 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <p>Calle/Avenida</p>
-                                        <input type="text">
+                                        <input type="text" [(ngModel)]="address">
                                     </div>
                                     <div class="col">
                                         <p>Numero</p>
-                                        <input type="text">
+                                        <input type="number" [(ngModel)]="addressNumber">
                                     </div>
                                 </div>
                             </div>
@@ -60,14 +60,17 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <p>Telefono de contacto</p>
-                                        <input type="tel">
+                                        <input type="number" [(ngModel)]="contactPhone">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="address-create-body-action mt-3">
                             <div class="d-flex justify-content-end">
-                                <button type="button" class="btn btn-primary" (click)="saveAddress()">Guardar</button>
+                                <button *ngIf="hasQueryParam(); else hasNotQueryParam" type="button" class="btn btn-primary" (click)="saveAddress()">Actualizar</button>
+                                <ng-template #hasNotQueryParam>
+                                    <button type="button" class="btn btn-primary" (click)="saveAddress()">Guardar</button>
+                                </ng-template>
                             </div>
                         </div>
                     </div>

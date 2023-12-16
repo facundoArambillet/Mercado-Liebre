@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ProductDetailDTO } from 'src/app/models/product/product-detail-dto';
 
 @Component({
   selector: 'app-shopping-cart-sidebar',
@@ -6,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./shopping-cart-sidebar.component.css']
 })
 export class ShoppingCartSidebarComponent {
-  @Input() products!: number[];
+  @Input() products!: ProductDetailDTO[];
   isDarkTheme: boolean = false;
 
 

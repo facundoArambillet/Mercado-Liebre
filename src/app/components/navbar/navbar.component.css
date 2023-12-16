@@ -11,7 +11,21 @@ nav {
 .send {
     font-size: 13px;
 }
-
+.hidden {
+    display: none;
+}
+.search button {
+    background: none;
+    border: none;
+    position: relative;
+    left: -34px;
+}
+.input-group input {
+    border-radius: 0;
+}
+.input-group > .form-control:focus {
+    z-index: 0;
+}
 .ubication:hover {
     cursor: pointer;
     border-radius: 6px;
@@ -172,6 +186,10 @@ nav {
 }
 
 @media(max-width: 1200px) {
+    .container {
+        max-width: none;
+    }
+    
     .send {
         font-size: 11px;
     }
@@ -191,9 +209,9 @@ nav {
         display: none !important;
     }
 
-    .container {
+    /* .container {
         max-width: none;
-    }
+    } */
 
     .toggle-btn {
         display: flex;

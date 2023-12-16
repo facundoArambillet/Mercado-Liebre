@@ -1,37 +1,57 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../enviroments/environment';
 import { CategoryDTO } from '../models/category/category-dto';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
-  private baseUrl = 'http://localhost:8080/category';
-
+  private authService = inject(AuthService);
   constructor(private http: HttpClient) { }
 
   public getAll(): Observable<CategoryDTO[]> {
-    return this.http.get<CategoryDTO[]>(`${this.baseUrl}`);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.get<CategoryDTO[]>(`${environment.apiUrl}/category`, {headers});
   }
 
   public getById(idCategory: number): Observable<CategoryDTO> {
-    return this.http.get<CategoryDTO>(`${this.baseUrl}/${idCategory}`);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.get<CategoryDTO>(`${environment.apiUrl}/category/${idCategory}`, {headers});
   }
 
   public getByName(categoryName: string): Observable<CategoryDTO> {
-    return this.http.get<CategoryDTO>(`${this.baseUrl}/type/${categoryName}`);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.get<CategoryDTO>(`${environment.apiUrl}/category/type/${categoryName}`, {headers});
   }
 
   public createCategory(category: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}`, category);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.post<any>(`${environment.apiUrl}/category`, category, {headers});
   }
 
   public updateCategory(idCategory: number, categoryDTO: CategoryDTO): Observable<CategoryDTO> {
-    return this.http.put<CategoryDTO>(`${this.baseUrl}/${idCategory}`, categoryDTO);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.put<CategoryDTO>(`${environment.apiUrl}/category/${idCategory}`, 
+    categoryDTO, {headers});
   }
 
   public deleteCategory(idCategory: number): Observable<CategoryDTO> {
-    return this.http.delete<CategoryDTO>(`${this.baseUrl}/${idCategory}`);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.delete<CategoryDTO>(`${environment.apiUrl}/category/${idCategory}`, {headers});
   }
 }

@@ -1,33 +1,57 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../enviroments/environment';
 import { ProductImageDTO } from '../models/product-image/product-image-dto';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductImageService {
-  private baseUrl = 'http://localhost:8080/product-image';
-
+  private authService = inject(AuthService);
   constructor(private http: HttpClient) { }
 
   public getAll(): Observable<ProductImageDTO[]> {
-    return this.http.get<ProductImageDTO[]>(`${this.baseUrl}`);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.get<ProductImageDTO[]>(`${environment.apiUrl}/product-image`, {headers});
+  }
+
+  public getByIdProduct(idProduct: number): Observable<ProductImageDTO[]> {
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.get<ProductImageDTO[]>(`${environment.apiUrl}/product-image/byProduct/${idProduct}`, {headers});
   }
 
   public getById(idProductImage: number): Observable<ProductImageDTO> {
-    return this.http.get<ProductImageDTO>(`${this.baseUrl}/${idProductImage}`);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.get<ProductImageDTO>(`${environment.apiUrl}/product-image/${idProductImage}`, {headers});
   }
 
   public createProductImage(productImage: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}`, productImage);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.post<any>(`${environment.apiUrl}/product-image`, productImage, {headers});
   }
 
   public updateProductImage(idProductImage: number, productImageDTO: ProductImageDTO): Observable<ProductImageDTO> {
-    return this.http.put<ProductImageDTO>(`${this.baseUrl}/${idProductImage}`, productImageDTO);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.put<ProductImageDTO>(`${environment.apiUrl}/product-image/${idProductImage}`, 
+    productImageDTO, {headers});
   }
 
   public deleteProductImage(idProductImage: number): Observable<ProductImageDTO> {
-    return this.http.delete<ProductImageDTO>(`${this.baseUrl}/${idProductImage}`);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.delete<ProductImageDTO>(`${environment.apiUrl}/product-image/${idProductImage}`, {headers});
   }
 }

@@ -44,6 +44,8 @@ import { UserAddressCreateComponent } from './components/user-address-create/use
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ShoppingCartContentComponent } from './components/shopping-cart-content/shopping-cart-content.component';
 import { ShoppingCartSidebarComponent } from './components/shopping-cart-sidebar/shopping-cart-sidebar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -88,11 +90,13 @@ import { ShoppingCartSidebarComponent } from './components/shopping-cart-sidebar
     ShoppingCartComponent,
     ShoppingCartContentComponent,
     ShoppingCartSidebarComponent,
+    ErrorPageComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],

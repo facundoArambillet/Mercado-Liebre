@@ -1,16 +1,24 @@
-<div class="cards" *ngFor="let product of productsByCategoryFamily">
+<div class="cards">
     <div class="product-card pb-4 pt-3" [ngClass]="{'dark-mode': isDarkTheme }">
         <div class="row">
             <div class="col-3 product-card-image">
-                <a [routerLink]="['/product', 'NombreDelProducto']">
+                <a [routerLink]="['/product', product.name]">
                     <img width="160" height="160"
-                        src="https://www.oscarbarbieri.com/pub/media/catalog/product/cache/7baadf0dec41407c7702efdbff940ecb/e/0/e0eb260282c3e970c2fc3e2321f6104a.jpg">
+                        src= {{productImage}}> 
                 </a>
             </div>
-            <div class="col-9 product-card-content">
-                <h2>"Product name"</h2>
-                <p>$ "Precio producto"</p>
+            <div class="col-9 product-card-content" *ngIf="!product.weeklyOffer; else weeklyOffer">
+                <h2>{{product.name}}</h2>
+                <p>$ {{product.price | number}}</p>
             </div>
+
         </div>
     </div>
 </div>
+<ng-template #weeklyOffer>
+    <div class="col-9 product-card-content offer">
+      <h2>{{ product.name }}</h2>
+      <p>$ {{ productOffer ? (productOffer.total | number): '' }}</p>
+      <h3>{{ productOffer ? productOffer.discountPercentage : '' }}% OFF</h3>
+    </div>
+</ng-template>

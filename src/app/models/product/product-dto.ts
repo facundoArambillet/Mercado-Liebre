@@ -4,5 +4,5 @@ export interface ProductDTO {
     price: number;
     stock: number;
     description: string;
-    isWeeklyOffer: boolean;
+    weeklyOffer: boolean;
 }

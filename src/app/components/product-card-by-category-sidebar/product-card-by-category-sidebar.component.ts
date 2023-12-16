@@ -1,4 +1,5 @@
 import { Component, Inject, Input, Renderer2 } from '@angular/core';
+import { CategoryDTO } from 'src/app/models/category/category-dto';
 
 @Component({
   selector: 'app-product-card-by-category-sidebar',
@@ -6,7 +7,9 @@ import { Component, Inject, Input, Renderer2 } from '@angular/core';
   styleUrls: ['./product-card-by-category-sidebar.component.css']
 })
 export class ProductCardByCategorySidebarComponent {
-  @Input() category!: string;
+  @Input() category!: CategoryDTO;
+  @Input() numberOfCategories!: number;
+  isDarkTheme: boolean = false;
   //Armar endpoint para traerme los atributos de una categoria en particular
   filtersByCategory: string[] = ["Marca", "Color"];
   //Armar endpoint en product_attributes para traerme los atributos de producto filtrados por producto y categoria
@@ -16,12 +19,13 @@ export class ProductCardByCategorySidebarComponent {
   filtersPriceByCategory: number[] = [200000, 400000];
   //Formatear los números en el arreglo
   formattedFiltersPriceByCategory: string[] = this.filtersPriceByCategory.map(number => number.toLocaleString());
-  isDarkTheme: boolean = false;
+
 
   loadAnchorTheme() {
     let bodyTheme = document.querySelector("body")?.getAttribute("data-bs-theme");
     bodyTheme == "dark" ? this.isDarkTheme = true : this.isDarkTheme = false;
   }
+
 
   observeTheme() {
     const targetNode = document.querySelector('body');
@@ -44,7 +48,7 @@ export class ProductCardByCategorySidebarComponent {
   }
 
   ngOnInit() {
-    this. loadAnchorTheme();
+    this.loadAnchorTheme();
     this.observeTheme();
 
     this.filtersByCategory.forEach((filter) => {

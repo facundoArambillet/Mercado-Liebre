@@ -19,6 +19,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { UserAddressComponent } from './components/user-address/user-address.component';
 import { UserAddressCreateComponent } from './components/user-address-create/user-address-create.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -26,7 +27,7 @@ const routes: Routes = [
   {path: "products/category-family/:category-family", component: ProductCardsByCategoryFamilyComponent},
   {path: "product/:name", component: ProductDetailComponent},
   {path: "offers", component: ProductOffertsComponent},
-  {path: "seller/:idProduct", component: SellerInformationComponent},
+  {path: "seller/:idSeller", component: SellerInformationComponent},
   {path: "protected-purchase", component: ProtectedPurchaseComponent},
   {path: "login", component: LoginComponent},
   {path: "register", component: RegisterComponent},
@@ -41,6 +42,7 @@ const routes: Routes = [
   {path: "address/create/:id", component: UserAddressCreateComponent},
   {path: "help", component: HelpComponent},
   {path: "cart", component: ShoppingCartComponent},
+  {path: "**", component: ErrorPageComponent}
 ];
 
 @NgModule({

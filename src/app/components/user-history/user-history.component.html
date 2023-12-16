@@ -52,13 +52,18 @@
                     </div>
                 </div>
             </div>
-            <div class="user-history-content mt-3">
+            <div class="user-history-content mt-3" *ngIf="productsHistory.length > 0; else historyEmpty">
                 <div class="row">
                     <div class="col mt-3" *ngFor="let product of productsHistory">
-                        <app-product-card [redirectedByUserHistory]="true"></app-product-card>
+                        <app-product-card [product]="product" [redirectedByUserHistory]="true"></app-product-card>
                     </div>
                 </div>
             </div>
+            <ng-template #historyEmpty>
+                <div class="user-history-content mt-3">
+                    Aqui aparecera tu historial cuando veas alguna publicacion
+                </div>
+            </ng-template>
         </div>
     </article>
 </section>

@@ -41,14 +41,14 @@
                 </div>
                 <div class="col-5 login-card">
                     <div class="login-form">
-                        <form (ngSubmit)="onSubmit()" method="POST">
+                        <form (ngSubmit)="submitEmail()" method="POST"  *ngIf="!emailValid; else passwordCard">
                             <span>Email</span>
                             <div>
-                                <input type="email" placeholder="Ej: MercadoLiebre@gmail.com" [(ngModel)]="userEmail" name="userEmail">
+                                <input type="email" placeholder="Ej: MercadoLiebre@gmail.com" [(ngModel)]="userCredentials" name="userCredentials" id="userCredentials" autocomplete="off">
                             </div>
                             <div class="login-actions pt-4">
                                 <button type="submit" class="btn btn-primary"
-                                    [disabled]="!userEmail">Continuar</button>
+                                    [disabled]="!userCredentials">Continuar</button>
                                 <a [routerLink]="['/register']">Crear cuenta</a>
                             </div>
                         </form>
@@ -58,3 +58,18 @@
         </div>
     </article>
 </section>
+
+<ng-template #passwordCard>
+    <form (ngSubmit)="submitPassword()" method="POST">
+        <span>Password</span>
+        <div>
+            <input type="password" [(ngModel)]="userCredentials" name="userCredentials">
+        </div>
+        <div class="login-actions pt-4">
+            <button type="submit" class="btn btn-primary"
+                [disabled]="!userCredentials">Iniciar Sesion
+            </button>
+            <!-- <a [routerLink]="['/']">¿Olvidaste tu contraseña?</a> -->
+        </div>
+    </form>
+</ng-template>

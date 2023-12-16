@@ -1,5 +1,11 @@
 import { Component, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { CategoryDTO } from 'src/app/models/category/category-dto';
+import { UserAddressDetailDTO } from 'src/app/models/user-address/user-address-detail-dto';
+import { User } from 'src/app/models/user/user';
+import { CategoryService } from 'src/app/services/category.service';
+import { UserAddressService } from 'src/app/services/user-address.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +14,17 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
   private router = inject(Router);
+  private categoryService = inject(CategoryService);
+  private userAddressService = inject(UserAddressService);
+
+  categories: CategoryDTO[] = [];
+  localStorage: Storage = window.localStorage;
   isLightTheme: boolean = true;
   isHidden: boolean = true;
-  @Input() isLogged!: boolean;
-  userAddress: number[] = new Array(2);
+  userName: string = "";
+  userLastName: string = "";
+  userAddresses: UserAddressDetailDTO[] = [];
+  idUser!: number;
   // themesModes() {
   //   if(document.querySelector("body")?.getAttribute("data-bs-theme") == "light") {
 
@@ -34,9 +47,76 @@ export class NavbarComponent {
   //   }
   // }
 
+  loadCategories() {
+    this.categoryService.getAll().subscribe(
+      {
+        next: (categories: CategoryDTO[]) => {
+          this.categories = categories;
+        },
+        error: (error) => {
+          console.log("Error load categories: " + error.message);
+        }
+      }
+    )
+  }
+
+  loadAddress() {
+    if(this.localStorage.getItem("User")) {
+       this.userAddressService.getByUser(this.idUser).subscribe(
+        {
+          next: (addresses: UserAddressDetailDTO[]) => {
+            this.userAddresses = addresses;
+          },
+          error: (error) => {
+            console.log("Error load address: " + error.message);
+          }
+        }
+       )
+    }
+  }
+
+  showPrincipalAddress() {
+    for(let address of this.userAddresses) {
+      if(address.principal) {
+        let addressCompleted = `${address.address} ${address.addressNumber}`;
+        return addressCompleted;
+      }
+    }
+    return null;
+  }
   //Armar funcion para cambiar la address principal(Deberia buscar las direcciones por usuario y ver el atributo 'isPrincipal')
   saveAddress() {
+    for(let address of this.userAddresses) {
+      if(address.principal) {
+        this.userAddressService.toggleAddressPrincipal(address).subscribe(
+          {
+            next: () => {
+              window.location.reload();
+            },
+            error: (error) => {
+              console.log("Error save address: " + error.message);
+            }
+          }
+        )
+      }
+    }
     console.log("Direccion cambiada");
+  }
+  
+  unrealizeUserName() {
+    let userString = window.localStorage.getItem("User");
+    let user: User;
+    if (userString !== null) {
+      user = JSON.parse(userString);
+      this.idUser = user.idUser;
+      this.userName = user.name;
+      this.userLastName = user.lastName;
+    }
+  }
+
+  unlogUser() {
+    window.localStorage.clear();
+    // window.location.reload();
   }
 
   toggleDropDown() {
@@ -52,4 +132,9 @@ export class NavbarComponent {
     : document.querySelector("body")?.classList.replace("light-mode-body","dark-mode-body");
   }
 
+  ngOnInit() {
+    this.unrealizeUserName();
+    this.loadCategories();
+    this.loadAddress();
+  }
 }

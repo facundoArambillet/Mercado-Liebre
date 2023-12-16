@@ -116,7 +116,7 @@ article>.container>.row {
         font-size: 12px;
     }
 }
-@media(max-width: 475px) {
+@media(max-width: 535px) {
     article>.container>.row {
         display: flex;
         justify-content: center;

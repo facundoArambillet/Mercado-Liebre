@@ -9,7 +9,7 @@ export interface Product {
     price: number;
     stock: number;
     description: string;
-    isWeeklyOffer: boolean;
+    weeklyOffer: boolean;
     category: Category;
     user: User;
     users: User[];

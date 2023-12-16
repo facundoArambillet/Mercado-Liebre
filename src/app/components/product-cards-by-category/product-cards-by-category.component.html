@@ -1,11 +1,13 @@
-<section>
+<section [ngClass]="{'dark-mode': isDarkTheme }">
     <div class="container">
         <div class="row pt-5">
             <article class="col-3 categories">
-                <app-product-card-by-category-sidebar [category]="categoryName"></app-product-card-by-category-sidebar>
+                <app-product-card-by-category-sidebar [category]="category" [numberOfCategories]="productsByCategory.length"></app-product-card-by-category-sidebar>
             </article>
             <article class="col-8 bg-white products">
-                <app-product-card-by-category [productsByCategory]="products"></app-product-card-by-category>
+                <div *ngFor="let productByCategory of productsByCategory">
+                    <app-product-card-by-category [product]="productByCategory"></app-product-card-by-category>
+                </div>
             </article>
         </div>
     </div>

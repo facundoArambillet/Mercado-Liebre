@@ -9,7 +9,7 @@ export interface ProductDetailDTO {
     price: number;
     stock: number;
     description: string;
-    isWeeklyOffer: boolean;
+    weeklyOffer: boolean;
     category: CategoryDTO;
     user: UserDTO;
     productAttributes: ProductAttributeDTO[];

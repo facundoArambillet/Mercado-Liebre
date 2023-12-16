@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { UserAddressDetailDTO } from 'src/app/models/user-address/user-address-detail-dto';
+import { User } from 'src/app/models/user/user';
+import { UserAddressService } from 'src/app/services/user-address.service';
 
 @Component({
   selector: 'app-user-address',
@@ -6,10 +9,34 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-address.component.css']
 })
 export class UserAddressComponent {
-  userAddress: number[] = new Array(2);
+  private userAddressService = inject(UserAddressService);
 
+  localStorage: Storage = window.localStorage;
+  userAddress: UserAddressDetailDTO[] = [];
+  idUser!: number;
   isDarkTheme: boolean = false;
 
+  loadAddresses() {
+    this.userAddressService.getByUser(this.idUser).subscribe(
+      {
+        next: (address: UserAddressDetailDTO[]) => {
+          this.userAddress = address;
+        },
+        error: (error) => {
+          console.log("Error load addresses: " + error.message);
+        }
+      }
+    )
+  }
+
+  unrealizeUser() {
+    let userString = window.localStorage.getItem("User");
+    let user: User;
+    if (userString !== null) {
+      user = JSON.parse(userString);
+      this.idUser = user.idUser;
+    }
+  }
 
   loadAnchorTheme() {
     let bodyTheme = document.querySelector("body")?.getAttribute("data-bs-theme");
@@ -37,7 +64,9 @@ export class UserAddressComponent {
   }
 
   ngOnInit() {
-    this. loadAnchorTheme();
+    this.loadAnchorTheme();
     this.observeTheme();
+    this.unrealizeUser();
+    this.loadAddresses();
   }
 }

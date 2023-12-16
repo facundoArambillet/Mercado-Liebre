@@ -1,6 +1,9 @@
 /* article {
     background-color: white;
 } */
+/* section {
+    min-height: calc(100vh - 350px);
+} */
 .cards>.product-card:nth-child(n+2) {
     margin-top: 15px;
 }
@@ -55,34 +58,6 @@
     color: rgb(0, 0, 0, 0.55);
 }
 
-.card-empty {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f5f5f5;
-    box-shadow: none;
-    padding: 48px 16px 0;
-    border-radius: 6px;
-    min-height: 400px;
-}
-
-.card-empty-title h1 {
-    font-size: 18px;
-}
-
-.card-empty-title h2 {
-    font-size: 16px;
-    color: rgba(0, 0, 0, .55);
-}
-
-.card-empty-btn button {
-    width: 328px;
-    height: 48px;
-}
-
-.card-empty .row>div {
-    padding: 15px 0px;
-}
 
 .dark-mode .product-card {
     background-color: #31393d !important;
@@ -96,14 +71,6 @@
 
 .dark-mode .product-card-information-stock p {
     color: rgb(255, 255, 255, 0.55);
-}
-
-.dark-mode .card-empty {
-    background-color: #31393d !important;
-}
-
-.dark-mode .card-empty h2 {
-    color: #DEE2E6;
 }
 
 @media(max-width: 991px) {

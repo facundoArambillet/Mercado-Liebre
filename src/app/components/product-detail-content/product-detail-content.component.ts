@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ProductDetailDTO } from 'src/app/models/product/product-detail-dto';
 
 @Component({
   selector: 'app-product-detail-content',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-detail-content.component.css']
 })
 export class ProductDetailContentComponent {
+  @Input() product!: ProductDetailDTO;
   productAtributtes: Number[] = new Array(5);
 
   isDarkTheme: boolean = false;

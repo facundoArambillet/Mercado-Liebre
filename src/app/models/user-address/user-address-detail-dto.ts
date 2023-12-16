@@ -8,6 +8,6 @@ export interface UserAddressDetailDTO {
     city: string;
     postalCode: number;
     contactPhone: number;
-    isPrincipal: boolean;
+    principal: boolean;
     user: UserDTO;
 }

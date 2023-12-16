@@ -1,8 +1,10 @@
-import { ShoppingCart } from "../shopping-cart/shopping-cart";
+import { Product } from "../product/product";
+import { User } from "../user/user";
 
 export interface Invoice {
     idInvoice: number;
     total: number;
     date: Date;
-    shoppingCart: ShoppingCart;
+    user: User;
+    products: Product[]
 }

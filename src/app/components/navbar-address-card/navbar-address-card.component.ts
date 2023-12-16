@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { UserAddressDetailDTO } from 'src/app/models/user-address/user-address-detail-dto';
 
 @Component({
   selector: 'app-navbar-address-card',
@@ -7,7 +8,9 @@ import { Component, Input } from '@angular/core';
 })
 export class NavbarAddressCardComponent {
   //usar del address el atributo 'isPrincipal', para dejar o no seleccionado ese input
-  @Input() address!: any;
+  @Input() address!: UserAddressDetailDTO;
+  @Input() userName!: string;
+  @Input() userLastname!: string;
   isDarkTheme: boolean = false;
 
   loadAnchorTheme() {

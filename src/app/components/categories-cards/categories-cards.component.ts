@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CategoryFamilyDTO } from 'src/app/models/category-family/category-family-dto';
+import { CategoryFamilyService } from 'src/app/services/category-family.service';
 
 @Component({
   selector: 'app-categories-cards',
@@ -6,19 +8,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./categories-cards.component.css']
 })
 export class CategoriesCardsComponent {
-
+  private categoryFamilyService = inject(CategoryFamilyService);
+  categoriesFamilyPopular: CategoryFamilyDTO[] = [];
   isDarkTheme: boolean = false;
 
   //Armar endpoint para traerme las familias de categorias con sus imagenes(array de bits)
-  categoryFamilies: { name: string, image: string }[] = [
-    { name: "Electrodomesticos", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQganPeIiYYMFa2-0xi7PWesY_CoE_vk5k-4g&usqp=CAU" },
-    { name: "Muebles", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQganPeIiYYMFa2-0xi7PWesY_CoE_vk5k-4g&usqp=CAU" },
-    { name: "Vehiculos", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQganPeIiYYMFa2-0xi7PWesY_CoE_vk5k-4g&usqp=CAU" },
-    { name: "Deportes", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQganPeIiYYMFa2-0xi7PWesY_CoE_vk5k-4g&usqp=CAU" },
-    { name: "Computacion", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQganPeIiYYMFa2-0xi7PWesY_CoE_vk5k-4g&usqp=CAU" },
-    { name: "Consolas y videjouegos", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQganPeIiYYMFa2-0xi7PWesY_CoE_vk5k-4g&usqp=CAU" },
-  ];
 
+  loadCategoriesFamilyPopular() {
+    this.categoryFamilyService.getPopularCategoryFamilies().subscribe(
+      {
+        next: (categoriesFamily: CategoryFamilyDTO[]) => {
+          this.categoriesFamilyPopular = categoriesFamily;
+        },
+        error: (error) => {
+          console.log("Error load categories family popular: " + error.message);
+        }
+      }
+    )
+  }
+  convertValidImage(categoryFamily: CategoryFamilyDTO) {
+    let validImageString = `data:image/png;base64,${categoryFamily.image}`;
+    return validImageString;
+  }
 
   loadAnchorTheme() {
     let bodyTheme = document.querySelector("body")?.getAttribute("data-bs-theme");
@@ -46,7 +57,8 @@ export class CategoriesCardsComponent {
   }
 
   ngOnInit() {
-    this. loadAnchorTheme();
+    this.loadCategoriesFamilyPopular();
+    this.loadAnchorTheme();
     this.observeTheme();
   }
 }

@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductCardByCategoryFamilySidebarComponent {
   @Input() categoryFamily!: string;
+  @Input() numberOfCategoryFamily!: number;
 
   isDarkTheme: boolean = false;
 

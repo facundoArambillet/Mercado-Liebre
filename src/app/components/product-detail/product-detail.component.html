@@ -6,7 +6,7 @@
                     <a [routerLink]="['/']">Volver</a>
                 </div>
                 <div class="header-navigation-category">
-                    <a class="family-categories ps-3"> "Family of categories"</a>
+                    <a class="family-categories ps-3"> {{category ? category.categoryFamily.type : ""}}</a>
                     <a class="header-navigation-category-icon ps-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" fill="currentColor"
                             class="bi bi-chevron-right" viewBox="0 0 16 16">
@@ -14,7 +14,7 @@
                                 d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
                         </svg>
                     </a>
-                    <a class="ps-1" [routerLink]="['/products', 'CategoriaDelProducto']">"Category product"</a>
+                    <a class="ps-1" [routerLink]="['/products', categoryName]">{{categoryName}}</a>
                 </div>
             </div>
         </article>
@@ -22,11 +22,11 @@
             <div class="bg-light card-detail-body" [ngClass]="{'dark-mode': isDarkTheme }">
                 <div class="row pt-2 ps-2 pe-2">
                     <div class="col card-detail-body-content">
-                        <app-product-detail-gallery></app-product-detail-gallery>
-                        <app-product-detail-content></app-product-detail-content>
+                        <app-product-detail-gallery *ngIf="product" [product]="product"></app-product-detail-gallery>
+                        <app-product-detail-content *ngIf="product" [product]="product"></app-product-detail-content>
                     </div>
                     <div class="col-4 card-detail-body-sidebar">
-                        <app-product-detail-sidebar></app-product-detail-sidebar>
+                        <app-product-detail-sidebar *ngIf="product" [product]="product" [seller]="seller"></app-product-detail-sidebar>
                     </div>
                 </div>
             </div>

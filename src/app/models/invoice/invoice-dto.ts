@@ -1,9 +1,10 @@
-import { ShoppingCart } from "../shopping-cart/shopping-cart";
-import { ShoppingCartDTO } from "../shopping-cart/shopping-cart-dto";
+import { Product } from "../product/product";
+import { User } from "../user/user";
 
 export interface InvoiceDTO {
     idInvoice: number;
     total: number;
     date: Date;
-    shoppingCart: ShoppingCartDTO;
+    user: User;
+    products: Product[];
 }

@@ -89,9 +89,13 @@
                     Liebre</a>
             </div>
             <div class="col-xl-6 col-lg-5 ps-5 navbar-hidden">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <form class="d-flex search" role="search">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Buscar Productos, marcas y más..." aria-label="Search">
+                        <button type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
                 </form>
             </div>
             <div class="col-xl-4 col-lg-4 publicity navbar-hidden">
@@ -99,20 +103,27 @@
             </div>
             <div class="col-2 navbar-hidden">
                 <div class="row" [ngClass]="{'ubication': isLightTheme, 'ubication-dark-mode': !isLightTheme}"
-                    *ngIf="isLogged">
+                    *ngIf="localStorage.getItem('User')">
                     <div class="col-1">
                         <i class="bi bi-geo-alt-fill"></i>
                     </div>
                     <div class="col send">
                         <div>
 
-                            <a type="button" data-bs-toggle="modal" data-bs-target="#userAddress">
-                                <small id="name">Enviar a : "Nombre"
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#userAddress" *ngIf="userAddresses.length > 0; else addressNotRegistered">
+                                <small id="name">Enviar a : {{ userName }}
                                 </small>
                                 <br>
-                                <small id="adress">Direccion: "Direccion"</small>
+                                <small id="adress">Direccion: {{ showPrincipalAddress() }}</small>
                             </a>
-
+                            <ng-template #addressNotRegistered>
+                                <a type="button" data-bs-toggle="modal" data-bs-target="#userAddress">
+                                    <small id="name">Registre una direccion
+                                    </small>
+                                    <br>
+                                    <small id="adress">Para recibir sus envios</small>
+                                </a>
+                            </ng-template>
                             <div class="modal fade" id="userAddress" tabindex="-1" aria-labelledby="userAddressLabel"
                                 aria-hidden="true">
                                 <div class="modal-lg modal-dialog  modal-dialog-centered">
@@ -125,16 +136,16 @@
                                             </p>
 
                                         </div>
-                                        <div class="modal-body">
-                                            <div *ngIf="userAddress.length > 0 else userWithoutAddress">
+                                        <div class="modal-body" *ngIf="userAddresses.length > 0 else userWithoutAddress">
+                                            <div>
                                                 <h2>En una de tus direcciones</h2>
                                                 <div class="modal-body-cards">
-                                                    <div class="address-card" *ngFor="let address of userAddress">
-                                                        <app-navbar-address-card></app-navbar-address-card>
+                                                    <div class="address-card" *ngFor="let address of userAddresses">
+                                                        <app-navbar-address-card [address]="address" [userName]="userName" [userLastname]="userLastName"></app-navbar-address-card>
                                                     </div>
                                                     <div class="address-update-btn">
                                                         <div>
-                                                            <a [routerLink]="['/address']">Editar direcciones</a>
+                                                            <a [routerLink]="['/address']" data-bs-dismiss="modal">Editar direcciones</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -147,10 +158,24 @@
                                                     <div class="address-save-btn">
                                                         <button type="button" class="btn btn-primary" (click)="saveAddress()">Guardar Cambios</button>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <ng-template #userWithoutAddress>
+                                            <div class="modal-body">
+                                                <div>
+                                                    <div class="address-actions-btns d-flex justify-content-end mt-4">
+                                                        <div class="address-cancel-btn">
+                                                            <button type="button" class="btn" data-bs-dismiss="modal">Cancelar</button>
+                                                        </div>
+                                                        <div class="address-save-btn">
+                                                            <button type="button" class="btn btn-primary" [routerLink]="['/address']" data-bs-dismiss="modal">Registrar Direccion</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
                                     </div>
                                 </div>
                             </div>
@@ -167,20 +192,23 @@
                             Categorias
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" [routerLink]="['/products', 'category']">Categories</a></li>
+                            <li *ngFor="let category of categories">
+                                <a class="dropdown-item" [routerLink]="['/products', category.name]">{{category.name}}</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" [routerLink]="['/offers']">Ofertas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/history']">Historial</a>
+                        <a class="nav-link" [routerLink]="['/history']" *ngIf="localStorage.getItem('User')">Historial</a>
+                        <a class="nav-link" [routerLink]="['/login']" *ngIf="!localStorage.getItem('User')">Historial</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/products/category-family', 'supermarket']">Supermercado</a>
+                        <a class="nav-link" [routerLink]="['/products/category-family', 'Supermercado']">Supermercado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/products/category-family','fashion']">Moda</a>
+                        <a class="nav-link" [routerLink]="['/products/category-family','Moda']">Moda</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" [routerLink]="['/cart']">Carrito</a>
@@ -191,24 +219,28 @@
             <div class="col-4 ps-auto d-flex align-items-center justify-content-center navbar-hidden"
                 style="padding: 0;">
                 <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item dropdown" *ngIf="isLogged; else notLoggedProfile">
+                    <li class="nav-item dropdown" *ngIf="localStorage.getItem('User'); else notLoggedProfile">
                         <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Profile
+                            {{ userName }}
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" [routerLink]="['/profile']">Mi Perfil</a></li>
-                            <li><a class="dropdown-item" [routerLink]="['/']">Cerrar sesison</a></li>
+                            <li><a class="dropdown-item" (click)="unlogUser()" [routerLink]="['/']">Cerrar sesison</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/purchases']">Mis compras</a>
+                        <a class="nav-link" [routerLink]="['/purchases']" *ngIf="localStorage.getItem('User')">Mis compras</a>
+                        <a class="nav-link" [routerLink]="['/login']" *ngIf="!localStorage.getItem('User')">Mis compras</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-disabled="true" [routerLink]="['/help']">Ayuda</a>
                     </li>
                     <li class="nav-item">
-                        <button title="Carrito" class="btn rounded-fill" [routerLink]="['/cart']">
+                        <button title="Carrito" class="btn rounded-fill" [routerLink]="['/cart']" *ngIf="localStorage.getItem('User')">
+                            <i class="bi bi-cart2"></i>
+                        </button>
+                        <button title="Carrito" class="btn rounded-fill" [routerLink]="['/login']" *ngIf="!localStorage.getItem('User')">
                             <i class="bi bi-cart2"></i>
                         </button>
                     </li>
@@ -233,22 +265,25 @@
 
         <div class="dropdown_menu"
             [ngClass]="{'': !isHidden, 'hidden': isHidden, 'dark-mode-btn-toggle': !isLightTheme, '': isLightTheme}">
-            <li class="nav-item" *ngIf="isLogged; else notLoggedProfile">
-                <a class="nav-link" [routerLink]="['/profile']">Profile</a>
+            <li class="nav-item" *ngIf="localStorage.getItem('User'); else notLoggedProfile">
+                <a class="nav-link" [routerLink]="['/profile']">{{userName}}</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Categorias
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" [routerLink]="['/products', 'category']">Categories</a></li>
+                    <li *ngFor="let category of categories">
+                        <a class="dropdown-item" [routerLink]="['/products', category.name]">{{category.name}}</a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item">
                 <a class="nav-link" aria-current="page" [routerLink]="['/offers']">Ofertas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/history']">Historial</a>
+                <a class="nav-link" [routerLink]="['/history']" *ngIf="localStorage.getItem('User')">Historial</a>
+                <a class="nav-link" [routerLink]="['/login']" *ngIf="!localStorage.getItem('User')">Historial</a>
             </li>
             <!-- <li class="nav-item">
                 <a class="nav-link" aria-disabled="true"
@@ -259,7 +294,8 @@
                     [routerLink]="['/products/category-family', 'fashion']">Moda</a>
             </li> -->
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/cart']">Carrito</a>
+                <a class="nav-link" [routerLink]="['/cart']" *ngIf="localStorage.getItem('User')">Carrito</a>
+                <a class="nav-link" [routerLink]="['/login']" *ngIf="!localStorage.getItem('User')">Carrito</a>
             </li>
 
             <li class="nav-item">

@@ -2,29 +2,29 @@
     <app-carousel></app-carousel>
 </section>
 <section>
-    <article>
-        <div class="container mt-5" *ngIf="isLogged">
+    <!-- <article>
+        <div class="container mt-5" *ngIf="localStorage.getItem('User') && productBasedInTheLastHistory.length > 0">
             <div>
                 <div>
                     <h4>Basado en tu ultima visita</h4>
                 </div>
                 <div>
                     <div class="row">
-                        <div class="col mt-3" *ngFor="let product of productsHistory">
-                            <app-product-card></app-product-card>
+                        <div class="col mt-3" *ngFor="let productBased of productBasedInTheLastHistory">
+                            <app-product-card [product]="productBased"></app-product-card>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </article>
+    </article> -->
     <article>
-        <div class="container mt-5" *ngIf="isLogged">
-            <h4>Relacionado con tus visita en: "Familia de categorias de ultima visita"</h4>
+        <div class="container mt-5" *ngIf="localStorage.getItem('User')  && productBasedInTheLastHistory.length > 0">
+            <h4>Relacionado con tus visita en: <strong>{{ categoryFamilyLatest }}</strong> </h4>
             <div>
                 <div class="row">
-                    <div class="col mt-3" *ngFor="let product of productsHistory">
-                        <app-product-card></app-product-card>
+                    <div class="col mt-3" *ngFor="let product of productBasedInTheLastCategoryFamily">
+                        <app-product-card [product]="product"></app-product-card>
                     </div>
                 </div>
             </div>
@@ -35,8 +35,8 @@
             <h4>Ofertas</h4>
             <div>
                 <div class="row">
-                    <div class="col mt-3" *ngFor="let product of productsHistory">
-                        <app-product-card></app-product-card>
+                    <div class="col mt-3" *ngFor="let productInOffer of productsInWeeklyOffer">
+                        <app-product-card [product]="productInOffer"></app-product-card>
                     </div>
                 </div>
             </div>
@@ -47,20 +47,20 @@
             <h4>Las mejores tiendas te esperan</h4>
             <div>
                 <div class="row">
-                    <div class="col mt-3" *ngFor="let product of productsHistory">
-                        <app-product-card></app-product-card>
+                    <div class="col mt-3" *ngFor="let productInOffer of productsInWeeklyOffer">
+                        <app-product-card [product]="productInOffer"></app-product-card>
                     </div>
                 </div>
             </div>
         </div>
     </article>
     <article>
-        <div class="container mt-5" *ngIf="isLogged">
-            <h4>Más vendidos en "La ultima categoria del historial"</h4>
+        <div class="container mt-5" *ngIf="localStorage.getItem('User')  && productBasedInTheLastHistory.length > 0">
+            <h4>Más vendidos en  <strong>{{ categoryLatest }}</strong></h4>
             <div>
                 <div class="row">
-                    <div class="col mt-3" *ngFor="let product of productsHistory">
-                        <app-product-card></app-product-card>
+                    <div class="col mt-3" *ngFor="let product of productBasedInTheLastHistory">
+                        <app-product-card [product]="product"></app-product-card>
                     </div>
                 </div>
             </div>

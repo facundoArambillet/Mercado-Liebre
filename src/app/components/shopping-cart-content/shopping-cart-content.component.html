@@ -1,7 +1,7 @@
 <section [ngClass]="{'dark-mode': isDarkTheme }">
     <article>
-        <div class="cards" *ngIf="products.length > 0 else productsEmpty">
-            <div class="product-card" *ngFor="let product of products">
+        <div class="cards" *ngIf="product">
+            <div class="product-card">
                 <div class="product-card-seller">
                     <h1>"Vendedor"</h1>
                 </div>
@@ -10,15 +10,15 @@
                         <div class="col-6">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="https://http2.mlstatic.com/D_NQ_NP_704674-MLA51734752568_092022-O.webp"
+                                    <img [src]="image"
                                         height="64px" width="64px">
                                 </div>
                                 <div class="col">
                                     <div>
-                                        <h1>"Nombre del producto"</h1>
+                                        <h1>{{ product.name }}</h1>
                                     </div>
                                     <div>
-                                        <button>Eliminar</button>
+                                        <button (click)="removeProduct(product.idProduct)">Eliminar</button>
                                     </div>
                                 </div>
                             </div>
@@ -26,12 +26,12 @@
                         <div class="col product-card-information-stock">
                             <div>
                                 <input type="number">
-                                <p>10 disponibles</p>
+                                <p>Disponibles {{ product.stock }}</p>
                             </div>
 
                         </div>
                         <div class="col product-card-information-price">
-                            <h2>$ "1.299.998"</h2>
+                            <h2>$ {{ product.price }}</h2>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Product } from 'src/app/models/product/product';
+import { User } from 'src/app/models/user/user';
+import { UserDetailDTO } from 'src/app/models/user/user-detail-dto';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-history',
@@ -6,9 +10,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-history.component.css']
 })
 export class UserHistoryComponent {
-  productsHistory: number[] = new Array(15);
+  private userService = inject(UserService);
+  productsHistory: Product[] = [];
   isSettingsHidden: boolean = true;
-
+  localStorage: Storage = window.localStorage;
+  
   isDarkTheme: boolean = false;
 
   toogleHidden() {
@@ -22,6 +28,29 @@ export class UserHistoryComponent {
     window.location.reload();
   }
 
+  unrealizeUserName() {
+    let userString = window.localStorage.getItem("User");
+    let user!: User;
+    if (userString !== null) {
+      user = JSON.parse(userString);
+    }
+    return user;
+  }
+
+
+  loadHistory() {
+    let userLogged = this.unrealizeUserName();
+    this.userService.getById(userLogged.idUser).subscribe(
+      {
+        next: (user: UserDetailDTO) => {
+          this.productsHistory = user.products;
+        },
+        error: (error) => {
+          console.log("Error load user history: " + error);
+        }
+      }
+    )
+  }
 
   loadAnchorTheme() {
     let bodyTheme = document.querySelector("body")?.getAttribute("data-bs-theme");
@@ -49,6 +78,7 @@ export class UserHistoryComponent {
   }
 
   ngOnInit() {
+    this.loadHistory();
     this.loadAnchorTheme();
     this.observeTheme();
   }

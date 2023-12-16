@@ -1,3 +1,4 @@
+import { Product } from "../product/product";
 import { UserRolDTO } from "../user-rol/user-rol-dto";
 
 export interface UserDetailDTO {
@@ -8,4 +9,5 @@ export interface UserDetailDTO {
     creationDate: Date;
     salesMade: number;
     userRol: UserRolDTO;
+    products: Product[];
 }

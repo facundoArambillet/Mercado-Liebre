@@ -1,35 +1,59 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductDetailDTO } from '../models/product/product-detail-dto';
 import { ShoppingCartDTO } from '../models/shopping-cart/shopping-cart-dto';
+import { environment } from '../enviroments/environment';
+import { AuthService } from './auth.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingCartService {
-  private baseUrl = 'http://localhost:8080/shopping-cart';
-
+  private authService = inject(AuthService);
   constructor(private http: HttpClient) { }
 
   public getAll(): Observable<ShoppingCartDTO[]> {
-    return this.http.get<ShoppingCartDTO[]>(`${this.baseUrl}`);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.get<ShoppingCartDTO[]>(`${environment.apiUrl}/shopping-cart`, {headers});
   }
 
   public getById(idShoppingCart: number): Observable<ShoppingCartDTO> {
-    return this.http.get<ShoppingCartDTO>(`${this.baseUrl}/${idShoppingCart}`);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.get<ShoppingCartDTO>(`${environment.apiUrl}/shopping-cart/${idShoppingCart}`, {headers});
+  }
+
+  public getByIdUser(idUser: number): Observable<ShoppingCartDTO> {
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.get<ShoppingCartDTO>(`${environment.apiUrl}/shopping-cart/by-user/${idUser}`, {headers});
   }
 
   public createShoppingCart(shoppingCart: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}`, shoppingCart);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.post<any>(`${environment.apiUrl}/shopping-cart`, shoppingCart, {headers});
   }
 
-  public insertProduct(idUser: number, productDetailDTO: ProductDetailDTO): Observable<ShoppingCartDTO> {
-    return this.http.post<ShoppingCartDTO>(`${this.baseUrl}/insert/${idUser}`, productDetailDTO);
+  public insertProduct(idCart: number, idProduct: number): Observable<ShoppingCartDTO> {
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.post<ShoppingCartDTO>(`${environment.apiUrl}/shopping-cart/insert/${idCart}/${idProduct}`, {headers});
   }
 
-  public removeProduct(idUser: number, productDetailDTO: ProductDetailDTO): Observable<ShoppingCartDTO> {
-    return this.http.delete<ShoppingCartDTO>(`${this.baseUrl}/remove/${idUser}`, { body: productDetailDTO });
+  public removeProduct(idCart: number, idProduct: number): Observable<ShoppingCartDTO> {
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.delete<ShoppingCartDTO>(`${environment.apiUrl}/shopping-cart/remove/${idCart}/${idProduct}`, {headers});
   }
 
 }

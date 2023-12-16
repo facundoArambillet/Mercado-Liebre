@@ -11,14 +11,24 @@
                             <div class="profile-address-title">
                                 <h1>Domicilios</h1>
                             </div>
-                            <div class="profile-address-body">
+                            <div class="profile-address-body" *ngIf="userAddress.length > 0 else addressNotRegistered">
                                 <div *ngFor="let address of userAddress">
-                                    <app-user-address-card></app-user-address-card>
+                                    <app-user-address-card [address]="address"></app-user-address-card>
                                 </div>
                                 <div class="profile-address-body-btn">
                                     <a [routerLink]="['/address/create']">Agregar domicilio</a>
                                 </div>
                             </div>
+                            <ng-template #addressNotRegistered>
+                                <div class="profile-address-body ">
+                                    <div class="d-flex justify-content-center">
+                                        <p class="mt-3">No posee domicilios registrados</p>
+                                    </div>
+                                    <div class="profile-address-body-btn">
+                                        <a [routerLink]="['/address/create']">Agregar domicilio</a>
+                                    </div>
+                                </div>
+                            </ng-template>
                         </div>
                     </div>
 

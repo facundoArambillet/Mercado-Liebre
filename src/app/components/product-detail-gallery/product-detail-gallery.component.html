@@ -1,9 +1,10 @@
 <div class="gallery">
     <div class="gallery-images row">
         <div class="col-2">
-            <div class="gallery-columns-img" *ngFor="let image of productImages; let i = index"
+            <div class="gallery-columns-img" *ngFor="let image of productImagesString; let i = index"
                 [ngClass]="{'gallery-columns-img-selected': i === selectedImageIndex}">
-                <div class="d-flex justify-content-center">
+
+                <div class="d-flex justify-content-center" *ngIf="product">
                     <img [src]="image" alt="" (click)="selectImage(i)">
                 </div>
             </div>

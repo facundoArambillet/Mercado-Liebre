@@ -10,9 +10,9 @@
                     </svg>
                 </div>
                 <div class="address-card-information col">
-                    <h1>"Nombre de calle y numero"</h1>
-                    <p>Codigo postal "numero" - "Provincia" - "Ciudad"</p>
-                    <p>"Nombre y Apellido" - "Numero de telefono"</p>
+                    <h1>{{ address.address }} {{ address.addressNumber }}</h1>
+                    <p>Codigo postal: {{ address.postalCode }} - {{ address.province }} - {{ address.city }}</p>
+                    <p>{{ userName }} - {{ address.contactPhone }}</p>
                 </div>
                 <div class="address-card-btn col-1 dropdown">
                     <div class="address-card-btn-menu" data-bs-toggle="dropdown">
@@ -22,9 +22,9 @@
                                 d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                         </svg>
                     </div>
-                    <div class="address-actions" aria-expanded="false" *ngIf="isPrincipal; else isNotPrincipal">
+                    <div class="address-actions" aria-expanded="false" *ngIf="address.principal; else isNotPrincipal">
                         <ul class="dropdown-menu">
-                            <li class="dropdown-item"  [routerLink]="['/address/create','idAddress']">
+                            <li class="dropdown-item"  [routerLink]="['/address/create', address.idAddress]">
                                 <a>Editar</a>
                             </li>
                         </ul>
@@ -38,13 +38,13 @@
 <ng-template #isNotPrincipal>
     <div class="address-actions" aria-expanded="false">
         <ul class="dropdown-menu">
-            <li class="dropdown-item"  [routerLink]="['/address/create','idAddress']">
+            <li class="dropdown-item"  [routerLink]="['/address/create', address.idAddress]">
                 <a>Editar</a>
             </li>
-            <li class="dropdown-item" (click)="deleteAddress()">
+            <li class="dropdown-item" (click)="deleteAddress(address.idAddress)">
                 <a>Eliminar</a>
             </li>
-            <li class="dropdown-item" (click)="updatePrincipalAddress()">
+            <li class="dropdown-item" (click)="updatePrincipalAddress(address.idAddress)">
                 <a>Usar como predeterminado de envios</a>
             </li>
         </ul>

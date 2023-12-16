@@ -1,4 +1,5 @@
 import { Component, Input, inject } from '@angular/core';
+import { UserCreateDTO } from 'src/app/models/user/user-create-dto';
 import { RegisterService } from 'src/app/services/register.service';
 
 @Component({

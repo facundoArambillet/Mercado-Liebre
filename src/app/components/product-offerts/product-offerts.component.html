@@ -19,8 +19,8 @@
                 </article>
                 <article class="col-9">
                     <div class="row">
-                        <div class="col mt-3 d-flex justify-content-center" *ngFor="let product of productsInOffert">
-                            <app-product-card></app-product-card>
+                        <div class="col mt-3 d-flex justify-content-center" *ngFor="let productInOffer of productsInOffer">
+                            <app-product-card [product]="productInOffer"></app-product-card>
                         </div>
                     </div>
                 </article>

@@ -2,21 +2,24 @@
     <article>
             <div class="row">
                 <div class="col-1 address-btn">
-                    <div>
-                        <input type="radio" name="address">
+                    <div *ngIf="address.principal; else isNotPrincipal">
+                        <input type="radio" name="address" checked>
                     </div>
+                    <ng-template #isNotPrincipal>
+                        <input type="radio" name="address">
+                    </ng-template>
                 </div>
                 <div class="col address-text">
                     <div>
-                        <h1>"Calle y numero"</h1>
+                        <h1>{{ address.address }} {{ address.addressNumber }}</h1>
                     </div>
                     <div>
                         <span>
                             <span>
-                                CP: "Codigo" - "Ciudad", "Provincia"
+                                CP: {{ address.postalCode }} - {{ address.province }} - {{ address.city }}
                             </span>
                             <span class="user-information">
-                                "Nombre completo" - "Celular"
+                                {{userName}} {{userLastname}} - {{ address.contactPhone }}
                             </span>
                         </span>
                     </div>

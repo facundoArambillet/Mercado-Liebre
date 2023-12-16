@@ -1,48 +1,90 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../models/user/user';
 import { UserCreateDTO } from '../models/user/user-create-dto';
 import { UserDTO } from '../models/user/user-dto';
 import { UserLoginDTO } from '../models/user/user-login-dto';
+import { UserDetailDTO } from '../models/user/user-detail-dto';
+import { Token } from '../models/user/token';
+import { CategoryFamilyDTO } from '../models/category-family/category-family-dto';
+import { environment } from '../enviroments/environment';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'http://localhost:8080/user';
-
+  private authService = inject(AuthService);
   constructor(private http: HttpClient) { }
 
   public getAll(): Observable<UserDTO[]> {
-    return this.http.get<UserDTO[]>(`${this.baseUrl}`);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+    
+    return this.http.get<UserDTO[]>(`${environment.apiUrl}/user`, {headers});
   }
 
-  public getById(idUser: number): Observable<User> {
-    return this.http.get<User>(`${this.baseUrl}/${idUser}`);
+  public getById(idUser: number): Observable<UserDetailDTO> {
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.get<UserDetailDTO>(`${environment.apiUrl}/user/${idUser}`, {headers});
   }
 
-  public getByEmail(userEmail: string): Observable<User> {
-    return this.http.get<User>(`${this.baseUrl}/email/${userEmail}`);
+  public getByEmail(userEmail: string): Observable<UserDetailDTO> {
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.get<UserDetailDTO>(`${environment.apiUrl}/user/email/${userEmail}`, {headers});
   }
 
-  public createUser(userCreateDTO: UserCreateDTO): Observable<UserCreateDTO> {
-    return this.http.post<UserCreateDTO>(`${this.baseUrl}`, userCreateDTO);
+  public getLatestCategoryFamilyInHistoryById(idUser: number): Observable<CategoryFamilyDTO[]> {
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.get<CategoryFamilyDTO[]>(`${environment.apiUrl}/user/history/${idUser}`, {headers})
   }
 
-  public loginUser(userLoginDTO: UserLoginDTO): Observable<UserDTO> {
-    return this.http.post<UserDTO>(`${this.baseUrl}/login`, userLoginDTO);
+  public validateEmail(userEmail: string): Observable<boolean> {
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.get<boolean>(`${environment.apiUrl}/user/email/validate/${userEmail}`, {headers});
+  }
+
+  public register(userCreateDTO: UserCreateDTO): Observable<UserCreateDTO> {
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.post<UserCreateDTO>(`${environment.apiUrl}/user/auth/register`, userCreateDTO, {headers});
+  }
+
+  public login(userLoginDTO: UserLoginDTO): Observable<Token> {
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.post<Token>(`${environment.apiUrl}/user/auth/login`, userLoginDTO, {headers});
   }
 
   public updateUser(idUser: number, user: User): Observable<User> {
-    return this.http.put<User>(`${this.baseUrl}/${idUser}`, user);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.put<User>(`${environment.apiUrl}/user/${idUser}`, user, {headers});
   }
 
   public incrementSalesMade(idUser: number): Observable<UserDTO> {
-    return this.http.put<UserDTO>(`${this.baseUrl}/salesMade/${idUser}`, {});
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.put<UserDTO>(`${environment.apiUrl}/user/salesMade/${idUser}`, {headers});
   }
 
   public deleteUser(idUser: number): Observable<UserDTO> {
-    return this.http.delete<UserDTO>(`${this.baseUrl}/${idUser}`);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.delete<UserDTO>(`${environment.apiUrl}/user/${idUser}`, {headers});
   }
 }

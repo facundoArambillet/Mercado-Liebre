@@ -5,5 +5,4 @@ export interface ShoppingCart {
     idCart: number;
     price: number;
     user: UserDTO;
-    products: ProductDetailDTO[];
 }

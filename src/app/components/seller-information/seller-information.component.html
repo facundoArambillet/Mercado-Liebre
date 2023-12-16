@@ -2,14 +2,14 @@
     <div class="row">
         <div class="col-4 seller-text">
             <div class="seller-text-name">
-                <h1>Seller Name</h1>
+                <h1>{{seller ? seller.name : ""}}</h1>
                 <!-- restar a la fecha actual, la fecha de creacion de la cuenta
                 para obtener hace cuanto esta en la plataforma -->
-                <p>"years" años vendiendo en Mercado Liebre</p>
+                <p>Desde {{seller ? formatCreationDate() : ""}}  vendiendo en Mercado Liebre</p>
             </div>
             <div class="seller-text-reputation">
                 <h2>Reputacion</h2>
-                <p>"Sales_mades" ventas en la plataforma</p>
+                <p>{{seller ? seller.salesMade : ""}} ventas en la plataforma</p>
             </div>
             <div class="seller-text-location">
                 <h2>Ubicacion</h2>

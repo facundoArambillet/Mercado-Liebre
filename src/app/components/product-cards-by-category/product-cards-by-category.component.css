@@ -1,7 +1,9 @@
 .products {
     padding: 0;
 }
-
+.dark-mode .products {
+    background-color: #31393d !important;
+}
 @media(max-width: 991px) {
     .products {
         margin-left: 5%;

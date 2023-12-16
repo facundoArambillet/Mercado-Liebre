@@ -1,37 +1,57 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../enviroments/environment';
 import { InvoiceDTO } from '../models/invoice/invoice-dto';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InvoiceService {
-  private baseUrl = 'http://localhost:8080/invoice';
-
+  private authService = inject(AuthService);
   constructor(private http: HttpClient) { }
 
   public getAll(): Observable<InvoiceDTO[]> {
-    return this.http.get<InvoiceDTO[]>(`${this.baseUrl}`);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.get<InvoiceDTO[]>(`${environment.apiUrl}/invoice`, {headers});
   }
 
   public getById(idInvoice: number): Observable<InvoiceDTO> {
-    return this.http.get<InvoiceDTO>(`${this.baseUrl}/${idInvoice}`);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.get<InvoiceDTO>(`${environment.apiUrl}/invoice/${idInvoice}`, {headers});
   }
 
   public getInvoicesByIdCart(idCart: number): Observable<InvoiceDTO[]> {
-    return this.http.get<InvoiceDTO[]>(`${this.baseUrl}/cart/${idCart}`);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.get<InvoiceDTO[]>(`${environment.apiUrl}/invoice/cart/${idCart}`, {headers});
   }
 
   public createInvoice(invoice: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}`, invoice);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.post<any>(`${environment.apiUrl}/invoice`, invoice, {headers});
   }
 
   public updateInvoice(idInvoice: number, invoiceDTO: InvoiceDTO): Observable<InvoiceDTO> {
-    return this.http.put<InvoiceDTO>(`${this.baseUrl}/${idInvoice}`, invoiceDTO);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.put<InvoiceDTO>(`${environment.apiUrl}/invoice/${idInvoice}`, 
+    invoiceDTO, {headers});
   }
 
   public deleteInvoice(idInvoice: number): Observable<InvoiceDTO> {
-    return this.http.delete<InvoiceDTO>(`${this.baseUrl}/${idInvoice}`);
+    const token: string | null = this.authService.getToken();
+    const headers = { 'Authorization': `Bearer ${token}`};
+
+    return this.http.delete<InvoiceDTO>(`${environment.apiUrl}/invoice/${idInvoice}`, {headers});
   }
 }

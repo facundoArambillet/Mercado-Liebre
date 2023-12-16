@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ProductDTO } from 'src/app/models/product/product-dto';
+import { ProductOfferService } from 'src/app/services/product-offer.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-offerts',
@@ -6,13 +9,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-offerts.component.css']
 })
 export class ProductOffertsComponent {
-  productsInOffert: number[] = new Array(20);
+  productOfferService = inject(ProductOfferService);
+  productService = inject(ProductService);
+  productsInOffer: ProductDTO[] = [];
 
   isDarkTheme: boolean = false;
 
   loadAnchorTheme() {
     let bodyTheme = document.querySelector("body")?.getAttribute("data-bs-theme");
     bodyTheme == "dark" ? this.isDarkTheme = true : this.isDarkTheme = false;
+  }
+
+  loadProductsInOffer() {
+    this.productService.getProductsInOffer().subscribe(
+      {
+        next: (productsInOffer : ProductDTO[]) => {
+          this.productsInOffer = productsInOffer;
+        },
+        error: (error) => {
+          console.log("product offer: " + error.message);
+        }
+      }
+    )
   }
 
   observeTheme() {
@@ -36,7 +54,8 @@ export class ProductOffertsComponent {
   }
 
   ngOnInit() {
-    this. loadAnchorTheme();
+    this.loadProductsInOffer();
+    this.loadAnchorTheme();
     this.observeTheme();
   }
 }

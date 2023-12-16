@@ -2,10 +2,12 @@
     <div class="container">
         <div class="row pt-5">
             <article class="col-3 categories">
-                <app-product-card-by-category-family-sidebar [categoryFamily]="categoryFamilyName"> </app-product-card-by-category-family-sidebar>
+                <app-product-card-by-category-family-sidebar [categoryFamily]="categoryFamilyType" [numberOfCategoryFamily]="productsByCategoryFamily.length"> </app-product-card-by-category-family-sidebar>
             </article>
             <article class="col-8 bg-white products">
-                <app-product-card-by-category-family [productsByCategoryFamily]="products"> </app-product-card-by-category-family>
+                <div *ngFor="let product of productsByCategoryFamily">
+                    <app-product-card-by-category-family [product]="product"> </app-product-card-by-category-family>
+                </div>
             </article>
         </div>
     </div>

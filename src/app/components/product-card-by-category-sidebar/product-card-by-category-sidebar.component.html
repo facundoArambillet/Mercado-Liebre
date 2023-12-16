@@ -1,8 +1,8 @@
 <div class="categories-sidebar-header">
-    <p>Category-Family</p>
+    <p>{{category ? category.categoryFamily.type : ""}}</p>
     <div>
-        <h3>{{category}}</h3>
-        <p>"Number of results" resultados</p>
+        <h3>{{ category ? category.name : ""}}</h3>
+        <p>{{numberOfCategories}} resultados</p>
     </div>
 </div>
 <div class="categories-sidebar-content" [ngClass]="{'dark-mode': isDarkTheme }">
